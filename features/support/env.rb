@@ -4,8 +4,25 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
-
 require 'cucumber/rails'
+
+# By default, any exception happening in your Rails application will bubble up
+# to Cucumber so that your scenario will fail.
+ActionController::Base.allow_rescue = false
+
+# Configuração do Database Cleaner
+require 'database_cleaner/active_record'
+
+DatabaseCleaner.strategy = :transaction
+
+Before do
+  DatabaseCleaner.start
+end
+
+After do
+  DatabaseCleaner.clean
+end
+
 
 # By default, any exception happening in your Rails application will bubble up
 # to Cucumber so that your scenario will fail. This is a different from how
@@ -21,16 +38,6 @@ require 'cucumber/rails'
 #
 # 2) Set the value below to true. Beware that doing this globally is not
 # recommended as it will mask a lot of errors for you!
-#
-ActionController::Base.allow_rescue = false
-
-# Remove/comment out the lines below if your app doesn't have a database.
-# For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.
-begin
-  DatabaseCleaner.strategy = :transaction
-rescue NameError
-  raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
-end
 
 # You may also want to configure DatabaseCleaner to use different strategies for certain features and scenarios.
 # See the DatabaseCleaner documentation for details. Example:
