@@ -1,0 +1,1 @@
+console.log('home_index.js carregado com sucesso');

@@ -24,6 +24,6 @@
 
   <body>
     <%= yield %>
-    <%= javascript_include_tag 'home_index', defer: true if content_for?(:home_index_js) %>
+    <%= javascript_include_tag 'pages/home_index', defer: true if content_for?(:home_index_js) %>
   </body>
 </html>
