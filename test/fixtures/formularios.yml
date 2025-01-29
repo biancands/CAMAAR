@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titulo: MyString
+  descricao: MyText
+  data_criacao: 2025-01-29 17:56:16
+  criado_usuario: 1
+  turma_id: 1
+
+two:
+  titulo: MyString
+  descricao: MyText
+  data_criacao: 2025-01-29 17:56:16
+  criado_usuario: 1
+  turma_id: 1
