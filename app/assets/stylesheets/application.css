@@ -9,6 +9,8 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
+/* ESTILOS GERAIS */
+
  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
 
 *{
@@ -19,36 +21,6 @@
 
 body{
     font-family: 'Open Sans', sans-serif;
-}
-
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #ececec;
-}
-
-.content{
-    background-color: white;
-    border-radius: 15px;
-    width: 960px;
-    height: 85%;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
-
-.content::before{
-    content: "";
-    position: absolute;
-    width: 40%;
-    height: 100%;
-    background-color: #5d569D;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-
-    left: 0;
 }
 
 .title{
@@ -116,6 +88,48 @@ body{
     color: #5d569D;
 }
 
+.forgetspassword {
+    color: #34495e;
+    font-size: 14px;
+    margin: 15px 0;
+    text-align: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ESTILOS DA HOME PAGINA DE CADASTRO/LOGIN/ESQUECI SE SENHA */
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ececec;
+}
+
+.content{
+    background-color: white;
+    border-radius: 15px;
+    width: 960px;
+    height: 85%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.content::before{
+    content: "";
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    background-color: #5d569D;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+    left: 0;
+}
+
 .first-content{
     display: flex;
 }
@@ -181,9 +195,48 @@ label{
     z-index: -1;
 }
 
+.second-content .third-column {
+    order: 1;
+    z-index: -1;
+    display: none;
+    width: 60%;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+}
 /* Estados */
 
-.sign-in-js .first-content .first-column {
+.reset-password-js .second-content .first-column {
+    z-index: 13;
+}
+
+
+.reset-password-js .second-content .third-column {
+    z-index: 11; /* Eleva sobre os outros elementos */
+    display: flex;
+    position: absolute;
+}
+
+.reset-password-js .first-content .first-column,
+.reset-password-js .first-content .second-column,
+.reset-password-js .second-content .second-column {
+    z-index: -1;
+}
+
+.reset-password-js .content::before {
+    left: 60%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 12;
+}
+
+.sign-in-js .third-column {
+    display: none; 
+}  
+
+.sign-in-js .first-content .first-column{
     z-index: -1;
 }
 
@@ -200,14 +253,12 @@ label{
     border-bottom-left-radius: 0;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    animation: slidein 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
-
+    animation: slidein 1.3s; 
     z-index: 12;
 }
 
 .sign-up-js .content::before {
-    animation: slideout 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
-
+    animation: slideout 1.3s; 
     z-index: 12;
 }
 
@@ -226,16 +277,15 @@ label{
 
 /* DESLOCAMENTO CONTEÚDO ATRÁS DO CONTENT:BEFORE*/
 .sign-in-js .first-content .second-column {
-
     z-index: -1;
     position: relative;
-    animation: deslocamentoEsq 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
+    animation: deslocamentoEsq 1.3s; 
 }
 
 .sign-up-js .second-content .second-column {
     position: relative;
     z-index: -1;
-    animation: deslocamentoDir 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
+    animation: deslocamentoDir 1.3s; 
 }
 
 /*ANIMAÇÃOO CSS PARA O CONTEÚDO*/
@@ -251,13 +301,11 @@ label{
     25% {
         left: -80px;
         opacity: .5;
-        /* z-index: 12; NÃO HÁ NECESSIDADE */
     }
 
     50% {
         left: -100px;
         opacity: .2;
-        /* z-index: 12; NÃO HÁ NECESSIDADE */
     }
 
     to {
@@ -277,13 +325,10 @@ label{
 
     25% {
         left: 80px;
-        /* z-index: 12;  NÃO HÁ NECESSIDADE*/
     }
 
     50% {
         left: 100px;
-        /* z-index: 12; NÃO HÁ NECESSIDADE*/
-        /* background-color: yellow;  Exemplo que dei no vídeo*/
     }
 
     to {
