@@ -1,3 +1,6 @@
+<% content_for :navbar_title do %>
+  Avaliação
+<% end %>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,9 +9,10 @@
   <%= javascript_include_tag 'avaliacao' %> <!-- Importa o JS específico -->
 </head>
 <body>
-  <div class="avaliacao-container">
-    <h2>Avaliaçãoes</h2>
-    <button onclick="voltarParaLogin()">Voltar</button>
-  </div>
+    <%= render 'shared/navbar' %> <!-- Inclui a Navbar nesta página -->
+    <div class="avaliacao-container">
+        <h2>Avaliaçãoes</h2>
+        <button onclick="voltarParaLogin()">Voltar</button>
+    </div>
 </body>
 </html>
