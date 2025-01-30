@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ultima_atualizacao: 2025-01-29 17:56:20
+  tipo_dado: MyString
+
+two:
+  ultima_atualizacao: 2025-01-29 17:56:20
+  tipo_dado: MyString
