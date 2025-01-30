@@ -8,6 +8,13 @@
 
 body{
     font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+.subtitle{
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
 }
 
 .title{
@@ -80,6 +87,31 @@ body{
     background-color: #ffffff;
     border: 1px solid #5d569D;
     color: #5d569D;
+}
+
+.btnicon{
+    border-radius: 20px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 10px;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    width: auto;
+    align-self: center;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    transition: background-color 0.5s;
+    font-size: 16px;
+}
+
+.btnicon:hover{
+    background-color: #ffffff;
+    color: #5d569d;
 }
 
 .forgetspassword {

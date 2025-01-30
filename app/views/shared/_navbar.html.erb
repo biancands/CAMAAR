@@ -1,28 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <%= javascript_include_tag 'navbar' %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
 <header>
-    <nav class="navbar">
-        <div>
-            <div class="icon-menu">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-            <ul class="nav-list">
-
-                <li><a href="/">Avaliaçãoes</a></li>
-                <li><a href="/">Importar dados</a></li>
-                <li><a href="/">Editar Templates</a></li>
-                <li><a href="/">Enviar Formularios</a></li>
-                <li><a href="/">Resultados</a></li>
-
-            </ul>
-            
-            <h3>
-                <%= yield :navbar_title %>
-            </h3>
-
-        </div>
-
-        <button>Sair</button>
-
-    </nav>
+  <nav class="navbar">
+    <div class="navbarleft">
+      <div class="icon-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+      <ul class="nav-list">
+        <li><a href="/">Avaliações</a></li>
+        <li><a href="/">Importar dados</a></li>
+        <li><a href="/">Editar Templates</a></li>
+        <li><a href="/">Enviar Formulários</a></li>
+        <li><a href="/">Resultados</a></li>
+      </ul>
+      <h3 class="subtitle">
+        <%= yield :navbar_title %>
+      </h3>
+    </div>
+    <a href="/login" class="btnicon">
+      <i class="fa-solid fa-right-from-bracket"></i>
+    </a>
+  </nav>
 </header>
+</body>
+</html>
