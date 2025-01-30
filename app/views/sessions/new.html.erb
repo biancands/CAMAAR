@@ -1,9 +1,11 @@
-<% content_for :home_index_js do %>
-  <script src="home_index.js"></script>
-<% end %>
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>Login</title>
+  <%= stylesheet_link_tag 'login', media: 'all' %> <!-- Importa o CSS específico -->
+  <%= javascript_include_tag 'login' %> <!-- Importa o JS específico -->
+</head>
 <body>
-
     <div class="container">
 
         <div class="content first-content">
@@ -135,3 +137,4 @@
     </div>
 
 </body>
+</html>
