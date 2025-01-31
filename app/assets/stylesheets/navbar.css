@@ -13,9 +13,10 @@ a {
     justify-content: space-between;
     align-items: center;
     background-color: #5d569d;
-    height: 10vh;
+    height: 15vh;
     padding-left: 10px;
     padding-right: 25px;
+    border-bottom: 4px solid #fff ;
   }
   
   .navbarleft {
@@ -28,11 +29,12 @@ a {
     list-style: none;
     display: flex;
     position: absolute;
-    top: 8vh;
+    top: 15vh;
     left: 0;
     width: 50vh;
-    height: 92vh;
+    height: 85vh;
     background: #5d569d;
+    border-right: 4px solid #ffff;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
