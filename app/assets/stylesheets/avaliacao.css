@@ -1,4 +1,41 @@
-.avaliacao-container{
+.avaliacao-container {
+    background-color: #ececec; 
+    min-height: 85vh; 
+    padding: 20px; 
     display: flex;
-    background-color: #ececec;
-}
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 35px;
+    margin-top: 20px;
+  }
+  
+  .card {
+    background-color: #ffffff;
+    border: 1px solid #7f8c8d7a;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .card p {
+    margin: 0;
+    font-size: 14px;
+    color: #7f8c8d;
+  }

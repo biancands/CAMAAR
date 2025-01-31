@@ -1,5 +1,5 @@
 <% content_for :navbar_title do %>
-  Avaliaçãoes
+  Avaliações
 <% end %>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -9,10 +9,11 @@
   <%= javascript_include_tag 'avaliacao' %> <!-- Importa o JS específico -->
 </head>
 <body>
-    <%= render 'shared/navbar' %> <!-- Inclui a Navbar nesta página -->
-    <div class="avaliacao-container">
-        <h2>Avaliaçãoes</h2>
-        <button onclick="voltarParaLogin()">Voltar</button>
+  <%= render 'shared/navbar' %> <!-- Inclui a Navbar nesta página -->
+  <div class="avaliacao-container">
+    <div id="cards-container" class="cards-grid">
+      <!-- Os cards serão renderizados aqui dinamicamente -->
     </div>
+  </div>
 </body>
 </html>
