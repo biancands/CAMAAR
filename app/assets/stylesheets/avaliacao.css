@@ -40,3 +40,37 @@
     font-size: 14px;
     color: #7f8c8d;
   }
+
+ 
+/* Estilizando o container da busca */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 10px auto;
+  }
+  
+  /* Estilizando o ícone de busca */
+  .search-container i {
+    position: absolute;
+    left: 15px;
+    color: #7f8c8d;
+    font-size: 18px;
+  }
+  
+  /* Estilizando a barra de busca */
+  #search-bar {
+    width: 100%;
+    padding: 10px 10px 10px 40px; /* Aumentamos o padding esquerdo para não sobrepor o ícone */
+    height: 45px;
+    border: 1px solid #7f8c8d7a;
+    border-radius: 5px;
+    background-color: #ecf0f1;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+  }
+  
+  
