@@ -1,20 +1,10 @@
-.avaliacao-container {
-    margin-top: 15vh; /* Adiciona um padding-top igual à altura da navbar */
-    background-color: #ececec;
-    min-height: 85vh;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .cards-grid {
+    .cards-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
     gap: 35px;
     margin-top: 20px;
   }
-  
+
   .card {
     background-color: #ffffff;
     border: 1px solid #7f8c8d7a;
@@ -22,6 +12,7 @@
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
   }
   
   .card:hover {

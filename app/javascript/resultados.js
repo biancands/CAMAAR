@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
     const avaliacoes = [
-      { materia: "Matemática", semestre: "2023.1", professor: "João Silva" },
-      { materia: "Português", semestre: "2023.1", professor: "Maria Oliveira" },
-      { materia: "História", semestre: "2023.1", professor: "Carlos Souza" },
-      { materia: "Geografia", semestre: "2023.1", professor: "Ana Costa" },
-      { materia: "Física", semestre: "2023.1", professor: "Pedro Santos" },
-      { materia: "Química", semestre: "2023.1", professor: "Luiza Fernandes" },
-      { materia: "Biologia", semestre: "2023.1", professor: "Fernando Lima" },
+      { id:1, materia: "Matemática", semestre: "2023.1", professor: "João Silva" },
+      { id:2, materia: "Português", semestre: "2023.1", professor: "Maria Oliveira" },
+      { id:3, materia: "História", semestre: "2023.1", professor: "Carlos Souza" },
+      { id:4, materia: "Geografia", semestre: "2023.1", professor: "Ana Costa" },
+      { id:5, materia: "Física", semestre: "2023.1", professor: "Pedro Santos" },
+      { id:6, materia: "Química", semestre: "2023.1", professor: "Luiza Fernandes" },
+      { id:7, materia: "Biologia", semestre: "2023.1", professor: "Fernando Lima" },
     ];
   
     const cardsContainer = document.getElementById("cards-container");

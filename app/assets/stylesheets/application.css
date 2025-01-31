@@ -15,6 +15,26 @@ body{
     overflow-x: hidden;
 }
 
+.bg {
+    margin-top: 15vh; 
+    background-color: #ececec;
+    min-height: 85vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containertwo{
+    background-color: #ffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+    min-width: 700px;
+}
+
 .subtitle{
     font-size: 20px;
     font-weight: bold;
