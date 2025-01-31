@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -7,7 +9,9 @@
 }
 
 body{
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
     overflow-x: hidden;
 }
 
@@ -57,7 +61,7 @@ body{
     text-transform: uppercase;
     color: #ffffff;
     font-size: 10px;
-    padding: 10px 50px;
+    padding: 10px 10px;
     cursor: pointer;
     font-weight: bold;
     width: 150px;
@@ -112,16 +116,6 @@ body{
 .btnicon:hover{
     background-color: #ffffff;
     color: #5d569d;
-}
-
-.forgetspassword {
-    color: #34495e;
-    font-size: 14px;
-    margin: 15px 0;
-    text-align: center;
-    background: none;
-    border: none;
-    cursor: pointer;
 }
 
 label{

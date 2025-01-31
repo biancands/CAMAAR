@@ -83,41 +83,6 @@
     z-index: -1;
 }
 
-.second-content .third-column {
-    order: 1;
-    z-index: -1;
-    display: none;
-    width: 60%;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-}
-
-.reset-password-js .second-content .first-column {
-    z-index: 13;
-}
-
-.reset-password-js .second-content .third-column {
-    z-index: 11; 
-    display: flex;
-    position: absolute;
-}
-
-.reset-password-js .first-content .first-column,
-.reset-password-js .first-content .second-column,
-.reset-password-js .second-content .second-column {
-    z-index: -1;
-}
-
-.reset-password-js .content::before {
-    left: 60%;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    z-index: 12;
-}
-
 .sign-in-js .third-column {
     display: none; 
 }  

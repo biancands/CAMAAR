@@ -21,38 +21,30 @@
             <div class="second-column">
 
                 <h2 class="title title-second">Criar Conta</h2>
+                <p class="description description-second">Para o primeiro acesso verifique o seu e-mail</p>
 
                 <form class="form signup">
 
                     <p class="erro signup">Preencha todos os campos!</p>
 
-                    <div class="input"> 
-                        <label>Tipo de usuário:</label>
-                        <select>
-                            <option value="0">Selecione</option>
-                            <option value="1">Docente</option>
-                            <option value="2">Discente</option>
-                        </select>
-                    </div>
-
-                    <div class="input">
-                        <label>Nome:</label>
-                        <input type="text" placeholder="Insira o seu nome completo">
-                    </div>
-
                     <div class="input">
                         <label>Email:</label>
-                        <input type="email" placeholder="Informe seu e-mail">
+                        <input type="email" id="email" placeholder="Insira o  seu e-mail">
                     </div>
 
-                    <div class="input matricula-field"> 
-                        <label>Matricula:</label>
-                        <input type="text" placeholder="Informe sua matricula">
+                    <div class="input">
+                        <label>Token:</label>
+                        <input type="text" id="token" placeholder="Informe o seu token">
                     </div>
 
                     <div class="input">
                         <label>Senha:</label>
-                        <input type="password" placeholder="Crie sua senha">
+                        <input type="password" id="password" placeholder="Password">
+                    </div>
+
+                    <div class="input">
+                        <label>Confirme a senha:</label>
+                        <input type="password" id="confirm-password" placeholder="Password">
                     </div>
 
                     <button class="btn btn-second">Cadastrar</button>
@@ -97,40 +89,7 @@
 
                 </form>
 
-                <button id="forgetspassword" type="button" class="forgetspassword">Esqueceu a senha?</button>
-
             </div>
-
-            <div class="third-column">
-
-                    <h2 class="title title-second">Login</h2>
-                    <p class="description description-second">Problemas ao iniciar sessão?</p>
-                    <p class="description description-second">Altere sua senha no sistema.</p>
-
-                    <form class="form forgets">
-
-                        <p class="erro forgets">Preencha todos os campos!</p>
-
-                        <div class="input">
-                            <label>Email:</label>
-                            <input type="email" id="email" placeholder="aluno@aluno.unb.br">
-                        </div>
-
-                        <div class="input">
-                            <label>Nova senha:</label>
-                            <input type="password" id="new-password" placeholder="Password">
-                        </div>
-
-                        <div class="input">
-                            <label>Confirme a senha:</label>
-                            <input type="password" id="confirm-password" placeholder="Password">
-                        </div>
-
-                        <button class="btn btn-second">Alterar senha</button>
-
-                    </form>
-
-                </div>
 
         </div>
 
