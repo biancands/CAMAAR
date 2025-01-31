@@ -46,3 +46,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   navbarInstance.init();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.querySelectorAll(".nav-list a");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault(); 
+      const href = this.getAttribute("href");
+      window.location.href = href;
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const logoutButton = document.getElementById("logout-button");
+
+  if (logoutButton) {
+    logoutButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.location.href = "/login";
+    });
+  }
+});
