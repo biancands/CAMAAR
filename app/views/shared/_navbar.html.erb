@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <%= javascript_include_tag 'navbar' %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<header>
+  <nav class="navbar">
+    <div class="navbarleft">
+      <div class="icon-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+      <ul class="nav-list">
+        <li><a href="/avaliacao">Avaliações</a></li>
+        <li><a href="/">Editar Templates</a></li>
+        <li><a href="/">Enviar Formulários</a></li>
+        <li><a href="/resultados">Resultados</a></li>
+        <li><button id="import" class="btn btn-primary">Importar Dados</button></li>
+      </ul>
+      <h3 class="subtitle">
+        <%= yield :navbar_title %>
+      </h3>
+    </div>
+    <a href="/login" class="btnicon" id="logout-button">
+    <i class="fa-solid fa-right-from-bracket"></i>
+    </a>
+  </nav>
+</header>
+</body>
+</html>

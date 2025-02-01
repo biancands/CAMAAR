@@ -1,0 +1,17 @@
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo do ícone de baixar */
+  .download-icon {
+    font-size: 20px;
+    color: #5d569d;
+    cursor: pointer;
+  }
+  
+  .download-icon:hover {
+    color: #3a356b;
+  }
