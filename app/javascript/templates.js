@@ -91,11 +91,20 @@ document.addEventListener("DOMContentLoaded", function () {
         card.className = "card";
     
         card.innerHTML = `
-          <div class="row">
+          <div class="space-between">
             <h3>${template.name}</h3>
+            <button type="button" class="remove-template">×</button>
           </div>
           <p><strong>Semestre:</strong> ${template.semestre}</p>
         `;
+    
+        card.querySelector(".remove-template").addEventListener("click", function () {
+            const index = templates.findIndex(t => t.id === template.id);
+            if (index !== -1) {
+                templates.splice(index, 1);
+                renderizarTemplates(templates);
+            }
+        });
     
         return card;
     }
@@ -146,9 +155,9 @@ document.addEventListener("DOMContentLoaded", function () {
             questions.push({ type, text, options });
         });
     
-        console.log({ templateName, questions });
-    
-        alert("Template criado com sucesso!");
+        const newTemplate = { id: templates.length + 1, name: templateName, semestre: "Novo" };
+        templates.push(newTemplate);
+        renderizarTemplates(templates);
     
         modal.style.display = "none";
         form.reset();

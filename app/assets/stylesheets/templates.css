@@ -11,11 +11,7 @@
     padding: 20px;
     border-radius: 5px;
 }
-.row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+
 .add-card {
     display: flex;
     justify-content: center;
@@ -152,7 +148,7 @@
     justify-content: space-between;
     align-items: center;
   }
-  .remove-question {
+  .remove-question, .remove-template {
     position: relative;
     bottom: 7px;
   }
