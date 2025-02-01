@@ -13,4 +13,29 @@
     <div id="cards-container" class="cards">
         
     </div>
+
+<%# //////////////////////// MODAL //////////////////////// %>
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span id="close-modal" class="close">&times;</span>
+
+    <form id="form-template">
+      <!-- Nome do Template -->
+      <div>
+        <label for="template-name">Nome do template:</label>
+        <input type="text" id="template-name" placeholder="Placeholder" required>
+      </div>
+
+      <!-- Contêiner de Questões -->
+      <div id="questions-container">
+      </div>
+      <!-- Botão para Adicionar Nova Questão -->
+      <button type="button" id="add-question" class="add-question">+</button>
+      <!-- Botão Final para Criar -->
+      <button type="submit" id="create-template" class="create-template">Criar</button>
+    </form>
+  </div>
+</div>
+
+
 </body>
