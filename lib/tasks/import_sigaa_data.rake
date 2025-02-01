@@ -38,6 +38,7 @@ namespace :db do
             codigo: "#{disciplina['code']}-#{disciplina.dig('class', 'classCode')}",
             nome: "#{disciplina['name']} (#{disciplina.dig('class', 'classCode')})",
             periodo: disciplina.dig("class", "semester"),
+            horario: disciplina.dig("class", "time"),      # Horário
             disciplina_id: Disciplina.find_by(codigo: disciplina["code"]).id
           }
         end

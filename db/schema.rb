@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_29_230046) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_01_230350) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -77,6 +77,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_29_230046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "disciplina_id"
+    t.string "horario"
     t.index ["codigo"], name: "index_turmas_on_codigo", unique: true
     t.index ["disciplina_id"], name: "index_turmas_on_disciplina_id"
   end
