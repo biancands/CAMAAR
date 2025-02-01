@@ -15,14 +15,9 @@ require 'database_cleaner/active_record'
 
 DatabaseCleaner.strategy = :transaction
 
-Before do
-  DatabaseCleaner.start
+Around do |_scenario, block|
+  DatabaseCleaner.cleaning(&block)
 end
-
-After do
-  DatabaseCleaner.clean
-end
-
 
 # By default, any exception happening in your Rails application will bubble up
 # to Cucumber so that your scenario will fail. This is a different from how
@@ -32,27 +27,15 @@ end
 # Sometimes we want to override this default behaviour and allow Rails to rescue
 # exceptions and display an error page (just like when the app is running in production).
 # Typical scenarios where you want to do this is when you test your error pages.
-# There are two ways to allow Rails to rescue exceptions:
-#
-# 1) Tag your scenario (or feature) with @allow-rescue
-#
-# 2) Set the value below to true. Beware that doing this globally is not
-# recommended as it will mask a lot of errors for you!
-
 # You may also want to configure DatabaseCleaner to use different strategies for certain features and scenarios.
-# See the DatabaseCleaner documentation for details. Example:
-#
-#   Before('@no-txn,@selenium,@culerity,@celerity,@javascript') do
-#     # { except: [:widgets] } may not do what you expect here
-#     # as Cucumber::Rails::Database.javascript_strategy overrides
-#     # this setting.
-#     DatabaseCleaner.strategy = :truncation
-#   end
-#
-#   Before('not @no-txn', 'not @selenium', 'not @culerity', 'not @celerity', 'not @javascript') do
-#     DatabaseCleaner.strategy = :transaction
-#   end
-#
+# See the DatabaseCleaner documentation for details.
+
+# Configurar logger para testes
+Rails.logger = Logger.new($stdout)
+Rails.logger.level = :warn
+
+# Garantir que o diretório de dados existe
+FileUtils.mkdir_p(Rails.root.join('db', 'data'))
 
 # Possible values are :truncation and :transaction
 # The :transaction strategy is faster, but might give you threading problems.
