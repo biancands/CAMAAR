@@ -1,0 +1,37 @@
+<% content_for :navbar_title do %>
+  Enviar Formulário
+<% end %>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>Forms</title>
+  <%= javascript_include_tag 'enviarforms' %> <!-- Importa o JS específico -->
+</head>
+
+<body>
+  <%= render 'shared/navbar' %> <!-- Inclui a Navbar nesta página -->
+
+  <div class="bg">
+    <div class="containertwo">
+      <!-- Caixa de seleção de template -->
+      <div class="template-select">
+        <select id="template-select">
+          <option value="" disabled selected>Carregando templates...</option>
+        </select>
+      </div>
+
+      <!-- Lista de turmas -->
+      <div class="turmas-list" id="turmas-list">
+        <!-- As turmas serão inseridas aqui pelo JS -->
+      </div>
+
+      <!-- Botão de enviar -->
+      <button class="btn btn-second" onclick="enviarFormulario()">Enviar</button>
+
+      <!-- Aviso de formulários enviados -->
+      <div class="aviso" id="aviso" style="display: none;">Formulários enviados!</div>
+    </div>
+  </div>
+</body>
+</html>
