@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>Login</title>
+  <%= stylesheet_link_tag 'login', media: 'all' %> <!-- Importa o CSS específico -->
+  <%= javascript_include_tag 'login' %> <!-- Importa o JS específico -->
+</head>
+<body>
+    <div class="container">
+
+        <div class="content first-content">
+
+            <div class="first-column">
+
+                <h2 class="title title-primary">Bem vindo ao CAMAAR</h2>
+                <p class="description description-primary">Caso já tenha uma conta realize o Login</p>
+                <button id="signin" class="btn btn-primary">Login</button>
+
+            </div>
+
+            <div class="second-column">
+
+                <h2 class="title title-second">Criar Conta</h2>
+                <p class="description description-second">Para o primeiro acesso verifique o seu e-mail</p>
+
+                <form class="form signup">
+
+                    <p class="erro signup">Preencha todos os campos!</p>
+
+                    <div class="input">
+                        <label>Email:</label>
+                        <input type="email" id="email" placeholder="Insira o seu e-mail">
+                    </div>
+
+                    <div class="input">
+                        <label>Token:</label>
+                        <input type="text" id="token" placeholder="Informe o seu token">
+                    </div>
+
+                    <div class="input">
+                        <label>Senha:</label>
+                        <input type="password" id="password" placeholder="Password">
+                    </div>
+
+                    <div class="input">
+                        <label>Confirme a senha:</label>
+                        <input type="password" id="confirm-password" placeholder="Password">
+                    </div>
+
+                    <button class="btn btn-second">Cadastrar</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="content second-content">
+
+            <div class="first-column">
+
+                <h2 class="title title-primary">CAMAAR</h2>
+                <p class="description description-primary">Ainda não é cadastrado?</p>
+                <p class="description description-primary">Realize o cadastrado no sistema.</p>
+                <button id="signup" class="btn btn-primary">Cadastrar</button>
+
+            </div>
+
+            <div class="second-column">
+
+                <h2 class="title title-second">Login</h2>
+                <p class="description description-second">Bem vindo de volta ao CAMAAR</p>
+
+                <form class="form login">
+
+                    <p class="erro login">Preencha todos os campos!</p>
+
+                    <div class="input">
+                        <label>Email:</label>
+                        <input type="email" placeholder="aluno@aluno.unb.br">
+                    </div>
+
+                    <div class="input">
+                        <label>Senha:</label>
+                        <input type="password" placeholder="Password">
+                    </div>
+
+                    <button class="btn btn-second">Login</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

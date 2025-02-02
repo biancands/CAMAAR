@@ -1,0 +1,55 @@
+<% content_for :navbar_title do %>
+  Avaliações | <%= @form[:nome_materia] %> | <%= @form[:semestre] %>
+<% end %>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>Forms</title>
+  <%= javascript_include_tag 'forms' %> <!-- Importa o JS específico -->
+</head>
+
+<body>
+  <%= render 'shared/navbar' %> <!-- Inclui a Navbar nesta página -->
+  <div class="bg">
+    <div class="containertwo">
+      <h1 class="title title-second"><%= @form[:nome_materia] %></h1>
+      <p class="description description-second"><%= @form[:descricao] %></p>
+
+      <%= form_with url: "#", method: :post do |form| %>
+        <% @form[:perguntas].each do |pergunta| %>
+            <div class="pergunta">
+            <p class="label"><strong><%= pergunta[:texto] %></strong></p>
+
+            <% if pergunta[:tipo_resposta] == "Múltipla escolha" %>
+                <% pergunta[:escolhas].each do |escolha| %>
+                <div>
+                    <%= form.radio_button "resposta_#{pergunta[:id_pergunta]}", escolha %>
+                    <%= form.label "resposta_#{pergunta[:id_pergunta]}", escolha %>
+                </div>
+                <% end %>
+            <% else %>
+                <%= form.text_area "resposta_#{pergunta[:id_pergunta]}", placeholder: pergunta[:placeholder] %>
+            <% end %>
+            </div>
+        <% end %>
+
+        <div class="btn-container">
+          <%= form.submit "Enviar Respostas", class: "btn btn-second" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</body>
+</html>
+
+<% content_for :navbar_title do %>
+  Avaliações | <%= @form[:nome_materia] %> | <%= @form[:semestre] %>
+<% end %>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>Forms</title>
+  <%= javascript_include_tag 'forms' %> <!-- Importa o JS específico -->
+</head>

@@ -1,10 +1,147 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+    overflow-x: hidden;
+}
+
+.bg {
+    margin-top: 15vh; 
+    background-color: #ececec;
+    min-height: 85vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containertwo{
+    background-color: #ffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+    min-width: 700px;
+}
+
+.subtitle{
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.title{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.title-primary{
+    color: #ffffff;
+}
+
+.title-second{
+    color: #5d569D;
+}
+
+.erro{
+    color: #e0565d;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 4px;
+    display: none;
+}
+
+.description{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 30px;
+}
+
+.description-primary{
+    color: #ffffff;
+}
+
+.description-second{
+    color: #7f8c8d;
+}
+
+.btn{
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 10px;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 150px;
+    align-self: center;
+    border: none;
+    margin-top: 1rem;
+}
+
+.btn-primary{
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    transition: background-color .5s;
+}
+
+.btn-primary:hover{
+    background-color: #ffffff;
+    color:#5d569D;
+}
+
+.btn-second {
+    background-color: #5d569D;
+    border: 1px solid #5d569D;
+    transition: background-color .5s;
+}
+
+.btn-second:hover {
+    background-color: #ffffff;
+    border: 1px solid #5d569D;
+    color: #5d569D;
+}
+
+.btnicon{
+    border-radius: 20px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 10px;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    width: auto;
+    align-self: center;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    transition: background-color 0.5s;
+    font-size: 16px;
+}
+
+.btnicon:hover{
+    background-color: #ffffff;
+    color: #5d569d;
+}
+
+label{
+    font-size: 12px;
+    color: #333F51;
+    font-weight: 500;
+    margin-left: 8px;
+    margin: 8px;
+}
