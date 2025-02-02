@@ -14,18 +14,24 @@
         <div class="line3"></div>
       </div>
       <ul class="nav-list">
-        <li><a href="/avaliacao">Avaliações</a></li>
-        <li><a href="/templates">Editar Templates</a></li>
-        <li><a href="/enviar_forms">Enviar Formulários</a></li>
-        <li><a href="/resultados">Resultados</a></li>
-        <li><button id="import" class="btn btn-primary">Importar Dados</button></li>
+        <% if @is_admin %>
+          <!-- Opções para ADMIN -->
+          <li><a href="/avaliacao">Avaliações</a></li>
+          <li><a href="/templates">Editar Templates</a></li>
+          <li><a href="/enviar_forms">Enviar Formulários</a></li>
+          <li><a href="/resultados">Resultados</a></li>
+          <li><button id="import" class="btn btn-primary">Importar Dados</button></li>
+        <% else %>
+          <!-- Opções para Usuário Comum -->
+          <li><a href="/avaliacao">Avaliações</a></li>
+        <% end %>
       </ul>
       <h3 class="subtitle">
         <%= yield :navbar_title %>
       </h3>
     </div>
     <a href="/login" class="btnicon" id="logout-button">
-    <i class="fa-solid fa-right-from-bracket"></i>
+      <i class="fa-solid fa-right-from-bracket"></i>
     </a>
   </nav>
 </header>
