@@ -57,7 +57,10 @@ namespace :db do
             nome: docente["nome"],
             email: docente["email"],
             tipo: "Docente",
-            password_digest: BCrypt::Password.create(SecureRandom.hex(10))
+            password_digest: BCrypt::Password.create(SecureRandom.hex(10)),
+            curso: nil, # Adicionando o campo 'curso' como nil para docentes
+            departamento: docente["departamento"],
+            formacao: docente["formacao"]
           }
 
           # Discentes
@@ -67,16 +70,18 @@ namespace :db do
               nome: aluno["nome"],
               email: aluno["email"],
               tipo: "Discente",
-              password_digest: BCrypt::Password.create(SecureRandom.hex(10))
+              password_digest: BCrypt::Password.create(SecureRandom.hex(10)),
+              curso: aluno["curso"] || nil,  # Garante que o campo 'curso' estará presente
+              departamento: nil,  # Adicionando 'departamento' como nil para discentes
+              formacao: nil       # Adicionando 'formacao' como nil para discentes
             }
           end
         end
-        # Remove duplicados baseados na matrícula
         usuarios.uniq! { |u| u[:matricula] }
         Usuario.upsert_all(
           usuarios,
           unique_by: :matricula,
-          update_only: [ :nome, :email, :tipo, :password_digest ]
+          update_only: [ :nome, :email, :tipo, :password_digest, :curso, :departamento, :formacao ]
         )
 
         # 4. Associar Usuários às Turmas
