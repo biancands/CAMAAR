@@ -1,0 +1,2 @@
+module MudarSenhaHelper
+end
