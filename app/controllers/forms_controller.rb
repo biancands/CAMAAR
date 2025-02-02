@@ -1,5 +1,7 @@
 class FormsController < ApplicationController
   def show
+    @is_admin = true
+    
     forms_data = [
       {
         id: 1,

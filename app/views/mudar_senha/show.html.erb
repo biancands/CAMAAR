@@ -1,0 +1,47 @@
+<% content_for :navbar_title do %>
+  Altear a Senha
+<% end %>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>Mudar a Senha</title>
+  <%= javascript_include_tag 'mudar_senha' %> <!-- Importa o JS específico -->
+</head>
+
+<body>
+  <%= render 'shared/navbar' %> <!-- Inclui a Navbar nesta página -->
+
+  <div class="bg">
+    <div class="containertwo">
+
+      <h3 class="title title-second">Mudar Senha</h3>
+
+        <form class="form">
+
+        <div class="input">
+            <label>Senha atual:</label>
+            <input type="password" id="password" placeholder="Password">
+        </div>
+
+        <div class="input">
+            <label>Nova senha:</label>
+            <input type="password" id="new-password" placeholder="Password">
+        </div>
+
+        <div class="input">
+            <label>Confirme a senha:</label>
+            <input type="password" id="confirm-password" placeholder="Password">
+        </div>
+
+          <!-- Botão de enviar -->
+        <button class="btn btn-second" onclick="enviarFormulario()">Alterar a Senha</button>
+
+        <!-- Aviso de formulários enviados -->
+        <div class="aviso" id="aviso" style="display: none;">Senha Alterada com Sucesso!</div>
+
+        </form>
+    </div>
+  </div>
+</body>
+</html>
