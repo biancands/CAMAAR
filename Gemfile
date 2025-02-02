@@ -58,9 +58,16 @@ group :development do
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  # Testes convencionais
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "faker"
+
+  # System testing
   gem "capybara"
   gem "selenium-webdriver"
+
+  # BDD
   gem "cucumber-rails", require: false
   gem "database_cleaner-active_record"
   gem "rspec-rails"

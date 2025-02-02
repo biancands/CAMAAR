@@ -1,0 +1,20 @@
+[
+    {
+      "code": "CIC0097",
+      "classCode": "TA",
+      "semester": "2023.1",
+      "docente": {
+        "usuario": "12345",
+        "nome": "Professor Exemplo",
+        "email": "professor@example.com"
+      },
+      "dicente": [
+        {
+          "usuario": "67890",
+          "nome": "Aluno Exemplo",
+          "email": "aluno@example.com"
+        }
+      ]
+    }
+  ]
+  
