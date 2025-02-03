@@ -1,4 +1,3 @@
-// Definição dos Estados da Tela
 document.addEventListener("DOMContentLoaded", function () {
     var btnSignin = document.querySelector("#signin");
     var btnSignup = document.querySelector("#signup");
@@ -42,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "X-CSRF-Token": csrfToken // Adiciona o token CSRF aqui
+                    "X-CSRF-Token": csrfToken 
                 },
                 body: JSON.stringify({
                     email: email,
@@ -88,13 +87,35 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            console.log("Login realizado:", {
-                email: emailInput,
-                senha: passwordInput
-            });
+            // Obtém o token CSRF da meta tag
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-            // Simulando login e redirecionamento
-            window.location.href = "/avaliacao";
+            fetch("/usuarios/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-Token": csrfToken
+                },
+                body: JSON.stringify({
+                    email: emailInput,
+                    password: passwordInput
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    errorMessage.textContent = data.error;
+                    errorMessage.style.display = "block";
+                } else {
+                    alert("Login bem-sucedido!");
+                    window.location.href = "/avaliacao"; // Redireciona para a página de avaliações
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao conectar ao servidor:", error);
+                errorMessage.textContent = "Erro ao conectar ao servidor. Tente novamente mais tarde.";
+                errorMessage.style.display = "block";
+            });
         });
     }
 });

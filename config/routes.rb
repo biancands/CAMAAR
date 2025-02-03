@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get "mudar_senha", to: "mudar_senha#show"
   get "/forms/:id", to: "forms#show"
   post "usuarios/activate", to: "usuarios#activate"
+  post "usuarios/login", to: "usuarios#login"
+  delete "usuarios/logout", to: "usuarios#logout"
 end

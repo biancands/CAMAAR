@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -23,6 +24,20 @@
   </head>
 
   <body>
+    <% unless (controller_name == "sessions" && action_name == "new") || 
+              (controller_name == "usuarios" && action_name == "activate") %>
+      <% if session[:usuario_id] %>
+        <nav>
+          <ul>
+            <li><a href="/avaliacao">Avaliações</a></li>
+            <li><a href="/resultados">Resultados</a></li>
+            <li><a href="/templates">Templates</a></li>
+            <li><a href="/usuarios/logout" data-method="delete">Sair</a></li>
+          </ul>
+        </nav>
+      <% end %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
