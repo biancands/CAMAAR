@@ -1,20 +1,21 @@
 # app/models/usuario.rb
 class Usuario < ApplicationRecord
   has_secure_password
-  has_and_belongs_to_many :turmas, join_table: :turmas_usuarios
 
-  validates :email, :tipo, presence: true
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :nome, presence: true
+  validates :tipo, presence: true, inclusion: { in: %w[docente dicente] }
   validates :matricula, uniqueness: true, allow_nil: true
+end
 
-  # Validações condicionais
-  validates :curso, presence: true, if: :discente?
-  validates :departamento, :formacao, presence: true, if: :docente?
 
-  def discente?
-    tipo == "Discente"
-  end
+# app/models/turma.rb
+class Turma < ApplicationRecord
+  belongs_to :disciplina
+  has_and_belongs_to_many :usuarios
+end
 
-  def docente?
-    tipo == "Docente"
-  end
+# app/models/disciplina.rb
+class Disciplina < ApplicationRecord
+  has_many :turmas, dependent: :destroy
 end

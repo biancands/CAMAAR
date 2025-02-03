@@ -1,5 +1,5 @@
 <% content_for :navbar_title do %>
-  Avaliações | <%= @form[:nome_materia] %> | <%= @form[:semestre] %>
+  Avaliações | <%= @form.turma.disciplina[:nome] %> | <%= @form.turma[:periodo] %>
 <% end %>
 
 <!DOCTYPE html>
@@ -13,23 +13,25 @@
   <%= render 'shared/navbar' %> <!-- Inclui a Navbar nesta página -->
   <div class="bg">
     <div class="containertwo">
-      <h1 class="title title-second"><%= @form[:nome_materia] %></h1>
+      <h1 class="title title-second"><%= @form.turma.disciplina[:nome] %></h1>
       <p class="description description-second"><%= @form[:descricao] %></p>
 
       <%= form_with url: "#", method: :post do |form| %>
-        <% @form[:perguntas].each do |pergunta| %>
+        <% @form.perguntas.each do |pergunta, index| %>
             <div class="pergunta">
-            <p class="label"><strong><%= pergunta[:texto] %></strong></p>
+            <p class="label"><strong><%= pergunta.texto %></strong></p>
 
-            <% if pergunta[:tipo_resposta] == "Múltipla escolha" %>
-                <% pergunta[:escolhas].each do |escolha| %>
+            <% if pergunta.tipo_resposta == "Múltipla resposta" %>
+                <% pergunta.respostas.each do |resposta| %>
                 <div>
-                    <%= form.radio_button "resposta_#{pergunta[:id_pergunta]}", escolha %>
-                    <%= form.label "resposta_#{pergunta[:id_pergunta]}", escolha %>
+                    <%= form.radio_button "resposta_#{pergunta.id}", resposta %>
+                    <%= form.label "resposta_#{resposta.pergunta_id}", resposta %>
                 </div>
                 <% end %>
             <% else %>
-                <%= form.text_area "resposta_#{pergunta[:id_pergunta]}", placeholder: pergunta[:placeholder] %>
+                <% pergunta.respostas.each do |resposta| %>
+                  <%= form.text_area "resposta_#{resposta.pergunta_id}", placeholder: resposta.conteudo %>
+                <% end %>
             <% end %>
             </div>
         <% end %>
@@ -44,7 +46,7 @@
 </html>
 
 <% content_for :navbar_title do %>
-  Avaliações | <%= @form[:nome_materia] %> | <%= @form[:semestre] %>
+  Avaliações | <%= @form.turma.disciplina.nome %> | <%= @form.turma.periodo %>
 <% end %>
 
 <!DOCTYPE html>

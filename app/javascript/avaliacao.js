@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
 
     card.addEventListener("click", function () {
-      window.location.href = `/forms/${avaliacao.id}`;
+      window.location.href = `/formularios/${avaliacao.id}`;
     });
 
     return card;

@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get 'avaliacao', to: 'avaliacoes#show'
   get 'resultados', to: 'resultados#show'
   get 'templates', to: 'templates#show'
-  get "/forms/:id", to: "forms#show"
+  resources :perguntas, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :formularios, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 end

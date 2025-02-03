@@ -70,6 +70,7 @@ group :test do
   # BDD
   gem "cucumber-rails", require: false
   gem "database_cleaner-active_record"
+  gem "rspec-rails"
 end
 
 gem "rails-i18n", "~> 8.0"

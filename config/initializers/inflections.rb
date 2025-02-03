@@ -14,3 +14,12 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym "RESTful"
 # end
+
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+    # ActiveSupport::Inflector.inflections(:pt) do |inflect|
+    
+    inflect.irregular 'pergunta', 'perguntas'
+    inflect.irregular 'resposta', 'respostas'
+    
+    # Outras regras podem ser adicionadas se necessário...
+  end
