@@ -1,5 +1,5 @@
 <% content_for :navbar_title do %>
-  Altear a Senha
+  Alterar a Senha
 <% end %>
 
 <!DOCTYPE html>
@@ -14,33 +14,30 @@
 
   <div class="bg">
     <div class="containertwo">
-
       <h3 class="title title-second">Mudar Senha</h3>
 
-        <form class="form">
-
+      <form class="form">
         <div class="input">
-            <label>Senha atual:</label>
-            <input type="password" id="password" placeholder="Password">
+          <label>Senha atual:</label>
+          <input type="password" id="password" placeholder="Senha Atual">
         </div>
 
         <div class="input">
-            <label>Nova senha:</label>
-            <input type="password" id="new-password" placeholder="Password">
+          <label>Nova senha:</label>
+          <input type="password" id="new-password" placeholder="Nova Senha">
         </div>
 
         <div class="input">
-            <label>Confirme a senha:</label>
-            <input type="password" id="confirm-password" placeholder="Password">
+          <label>Confirme a senha:</label>
+          <input type="password" id="confirm-password" placeholder="Confirme a Nova Senha">
         </div>
 
-          <!-- Botão de enviar -->
-        <button class="btn btn-second" onclick="enviarFormulario()">Alterar a Senha</button>
+        <!-- Botão de enviar -->
+        <button type="submit" class="btn btn-second">Alterar a Senha</button>
 
-        <!-- Aviso de formulários enviados -->
+        <!-- Aviso de sucesso -->
         <div class="aviso" id="aviso" style="display: none;">Senha Alterada com Sucesso!</div>
-
-        </form>
+      </form>
     </div>
   </div>
 </body>

@@ -21,7 +21,7 @@ class UsuariosController < ApplicationController
     end
   end
 
-  # Nova ação de login
+  # issue 104 - Login
   def login
     usuario = Usuario.find_by(email: params[:email]) || Usuario.find_by(matricula: params[:email])
 
@@ -36,5 +36,29 @@ class UsuariosController < ApplicationController
   def logout
     session[:usuario_id] = nil
     redirect_to root_path, notice: "Logout realizado com sucesso!"
+  end
+
+  # issue 107 - Mudar senha
+  def change_password
+    usuario = Usuario.find(session[:usuario_id])
+
+    if usuario.authenticate(params[:current_password]) # Confirma se a senha atual está correta
+      if params[:new_password] == params[:password_confirmation]
+        usuario.update(password: params[:new_password])
+        render json: { message: "Senha alterada com sucesso!" }, status: :ok
+      else
+        render json: { error: "As senhas novas não coincidem." }, status: :unprocessable_entity
+      end
+    else
+      render json: { error: "Senha atual incorreta." }, status: :unauthorized
+    end
+  end
+
+  private
+
+  def authenticate_usuario!
+    unless session[:usuario_id]
+      render json: { error: "Usuário não autenticado." }, status: :unauthorized
+    end
   end
 end

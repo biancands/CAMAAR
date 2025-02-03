@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   post "usuarios/activate", to: "usuarios#activate"
   post "usuarios/login", to: "usuarios#login"
   delete "usuarios/logout", to: "usuarios#logout"
+  post "usuarios/change_password", to: "usuarios#change_password"
 end

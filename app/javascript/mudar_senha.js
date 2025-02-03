@@ -28,18 +28,45 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (novaSenha !== confirmarSenha) {
-            alert("⚠️ As senhas não coincidem!");
+            alert("⚠️ As senhas novas não coincidem!");
             newPasswordInput.style.backgroundColor = "#ffcccc";
             confirmPasswordInput.style.backgroundColor = "#ffcccc";
             return;
         }
 
-        aviso.style.display = "block"; // Mostra o aviso
-        setTimeout(() => {
-            aviso.style.display = "none"; // Esconde depois de 3s
-        }, 3000);
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
 
-        console.log("✅ Senha alterada com sucesso!");
+        fetch("/usuarios/change_password", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-Token": csrfToken
+            },
+            body: JSON.stringify({
+                current_password: senhaAtual,
+                new_password: novaSenha,
+                password_confirmation: confirmarSenha
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(`❌ Erro: ${data.error}`);
+            } else {
+                aviso.textContent = data.message;
+                aviso.style.display = "block";
+                passwordInput.value = "";
+                newPasswordInput.value = "";
+                confirmPasswordInput.value = "";
+                setTimeout(() => {
+                    aviso.style.display = "none";
+                }, 3000);
+            }
+        })
+        .catch(error => {
+            console.error("Erro ao conectar ao servidor:", error);
+            alert("Erro ao conectar ao servidor. Tente novamente.");
+        });
     }
 
     const submitButton = document.querySelector(".btn.btn-second");
