@@ -27,8 +27,18 @@
     </div>
 
     <div id="cards-container" class="cards-grid">
-      <!-- Os cards serão renderizados aqui dinamicamente -->
-    </div>
+    <% @avaliacoes.each do |avaliacao| %>
+      <div class="card" data-id="<%= avaliacao[:id] %>" data-materia="<%= avaliacao[:materia].downcase %>">
+        <div class="card-header">
+          <h3><%= avaliacao[:materia] %></h3>
+        </div>
+        <p><strong>Semestre:</strong> <%= avaliacao[:semestre] %></p>
+        <p><strong>Professor:</strong> <%= avaliacao[:professor] %></p>
+      </div>
+    <% end %>
   </div>
+
+  </div>
+
 </body>
 </html>
