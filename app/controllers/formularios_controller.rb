@@ -1,10 +1,12 @@
 class FormulariosController < ApplicationController
+  
   def show
+    @is_admin = true
 
+    formulario = Formulario.all
+
+    return redirect_to root_path, alert: "Formulário não encontrado." if formulario.empty? || (formulario.filter{|obj| obj.id == (params[:id]).to_i}).empty?
     @form = Formulario.includes(:usuario, turma: :disciplina, perguntas: :respostas).find(params[:id])
-
-   ## é para ir para o home quando o index, não estiver na tabela de formularop. return redirect_to root_path, alert: "Formulário não encontrado." if rescue ActiveRecord::RecordNotFound
-    puts @form
 
   end
 
