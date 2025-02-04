@@ -8,3 +8,9 @@ pt-BR:
           blank: "não pode ficar em branco"
   errors:
     format: "%{message}"
+# config/locales/pt-BR.yml
+pt-BR:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'Validação falhou: %{errors}'

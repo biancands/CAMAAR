@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_02_050336) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_04_005010) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -102,6 +102,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_02_050336) do
     t.string "formacao"
     t.string "activation_token"
     t.datetime "activation_token_sent_at", precision: nil
+    t.boolean "admin", default: false
     t.index ["activation_token"], name: "index_usuarios_on_activation_token", unique: true
     t.index ["matricula"], name: "index_usuarios_on_matricula", unique: true
   end
