@@ -30,8 +30,13 @@
         <nav>
           <ul>
             <li><a href="/avaliacao">Avaliações</a></li>
-            <li><a href="/resultados">Resultados</a></li>
-            <li><a href="/templates">Templates</a></li>
+            <li><a href="/mudar_senha">Alterar Senha</a></li>
+
+            <% if admin? %>
+              <li><a href="/templates">Editar Templates</a></li>
+              <li><a href="/enviar_forms">Enviar Formulários</a></li>
+              <li><a href="/resultados">Resultados</a></li>
+            <% end %>
             <li><a href="/usuarios/logout" data-method="delete">Sair</a></li>
           </ul>
         </nav>
