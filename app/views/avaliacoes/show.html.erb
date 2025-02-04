@@ -1,0 +1,44 @@
+<% content_for :navbar_title do %>
+  Avaliações
+<% end %>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>Avaliação</title>
+  <%= stylesheet_link_tag 'avaliacao', media: 'all' %> <!-- Importa o CSS específico -->
+  <%= javascript_include_tag 'avaliacao' %> <!-- Importa o JS específico -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <%= render 'shared/navbar' %> <!-- Inclui a Navbar nesta página -->
+
+  <div class="bg">
+
+    <div class="search-container">
+      <i class="fas fa-search"></i> <!-- Ícone de busca -->
+      <input 
+        type="text" 
+        id="search-bar" 
+        placeholder="Buscar avaliação..." 
+        onkeyup="filtrarAvaliacoes()"
+      >
+    </div>
+
+    <div id="cards-container" class="cards-grid">
+    <% @avaliacoes.each do |avaliacao| %>
+      <div class="card" data-id="<%= avaliacao[:id] %>" data-materia="<%= avaliacao[:materia].downcase %>">
+        <div class="card-header">
+          <h3><%= avaliacao[:materia] %></h3>
+        </div>
+        <p><strong>Semestre:</strong> <%= avaliacao[:semestre] %></p>
+        <p><strong>Professor:</strong> <%= avaliacao[:professor] %></p>
+      </div>
+    <% end %>
+  </div>
+
+  </div>
+
+</body>
+</html>

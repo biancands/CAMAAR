@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <%= javascript_include_tag 'navbar' %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<header>
+  <nav class="navbar">
+    <div class="navbarleft">
+      <div class="icon-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+      <ul class="nav-list">
+        <% if admin? %>
+          <!-- Opções para ADMIN -->
+          <li><a href="/avaliacao">Avaliações</a></li>
+          <li><a href="/templates">Editar Templates</a></li>
+          <li><a href="/enviar_forms">Enviar Formulários</a></li>
+          <li><a href="/resultados">Resultados</a></li>
+          <li><a href="/mudar_senha">Alterar a Senha</a></li>
+          <li>
+            <button id="import" class="btn btn-primary">Importar Dados</button>
+          </li>
+
+          <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            var importButton = document.getElementById("import");
+
+            if (importButton) {
+              importButton.addEventListener("click", function () {
+                if (!confirm("Tem certeza que deseja importar os usuários?")) {
+                  return;
+                }
+
+                fetch("/admin/import_usuarios", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+                  }
+                })
+                .then(response => response.json())
+                .then(data => {
+                  if (data.error) {
+                    alert("Erro: " + data.error);
+                  } else {
+                    alert(data.message);
+                  }
+                })
+                .catch(error => {
+                  console.error("Erro ao importar usuários:", error);
+                  alert("Ocorreu um erro ao tentar importar os usuários.");
+                });
+              });
+            }
+          });
+          </script>
+
+        <% else %>
+          <!-- Opções para Usuário Comum -->
+          <li><a href="/avaliacao">Avaliações</a></li>
+          <li><a href="/mudar_senha">Alterar a Senha</a></li>
+        <% end %>
+      </ul>
+      <h3 class="subtitle">
+        <%= yield :navbar_title %>
+      </h3>
+    </div>
+    <a href="/login" class="btnicon" id="logout-button">
+      <i class="fa-solid fa-right-from-bracket"></i>
+    </a>
+  </nav>
+</header>
+</body>
+</html>

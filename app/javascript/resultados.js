@@ -1,0 +1,15 @@
+document.addEventListener("DOMContentLoaded", function () {
+  window.filtrarAvaliacoes = function () {
+      const termoBusca = document.getElementById("search-bar").value.toLowerCase();
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+          const materia = card.dataset.materia;
+          if (materia.includes(termoBusca)) {
+              card.style.display = "block"; 
+          } else {
+              card.style.display = "none"; 
+          }
+      });
+  };
+});

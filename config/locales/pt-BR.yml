@@ -1,0 +1,16 @@
+pt-BR:
+  activerecord:
+    errors:
+      messages:
+        blank: "não pode ficar em branco"
+      attributes:
+        codigo:
+          blank: "não pode ficar em branco"
+  errors:
+    format: "%{message}"
+# config/locales/pt-BR.yml
+pt-BR:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'Validação falhou: %{errors}'

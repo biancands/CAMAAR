@@ -1,0 +1,52 @@
+.template-select {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.template-select select {
+  width: 100%;
+  height: 45px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+/* Estilo da lista de turmas */
+.turmas-list {
+  width: 100%;
+  max-width: 600px;
+}
+
+.turma-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.turma-item:last-child {
+  border-bottom: none;
+}
+
+.turma-item label {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+}
+
+.turma-item input[type="checkbox"] {
+  margin-left: 10px;
+}
+
+/* Estilo do aviso */
+.aviso {
+  margin-top: 20px;
+  color: green;
+  font-size: 16px;
+  display: none; /* Inicialmente oculto */
+}

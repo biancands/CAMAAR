@@ -1,22 +1,47 @@
 # CAMAAR
 Sistema para avaliação de atividades acadêmicas remotas do CIC
 
-## Participantes:
-1. Alan Henrique Rangel Ferreira - 190101270
-2. Bianca Neves da Silva - 231013583
-3. DANILO SILVEIRA DA SILVA - 222014142
-4. Guilherme Ribeiro de Macedo - 170162354
-5. Pedro José Monteiro de Barros Ceva Rodrigues - 190139315
+## Como Rodar o Projeto na Máquina
 
-### Scrum Master: Guilherme Ribeiro
-### Product Owner: Bianca Neves
+### Configuração do Banco de Dados
+1. Crie um banco de dados PostgreSQL.
+2. Configure o arquivo `config/database.yml` com as credenciais do seu banco de dados.
 
-#### A política de branches se baseou na criação de novas branches a partir da branch sprint-1 para o desenvolvimento de cada feature. Após a conclusão do desenvolvimento, promovia-se um pull request para a branch sprint-1.
+### Passos para Executar o Projeto
+1. Clone o repositório:
+    ```sh
+    git clone https://github.com/seu-usuario/CAMAAR.git
+    cd CAMAAR
+    ```
 
-### Serão desenvolvidas 15 issues, optamos por não desenvolver a issue #106, com base no nosso modelo entidade-relacionamento. 
+2. Instale as dependências:
+    ```sh
+    bundle install
+    ```
 
-## Divisão das Feaures:
-- Alan Henrique: #105 #104 #103 #102 #101
-- Bianca Neves: #107 #108 #109
-- Danilo Silveira: #110 #111 #112 #113
-- Pedro José: #98 #99 #100
+3. Crie o banco de dados:
+    ```sh
+    rails db:create
+    ```
+
+4. Execute as migrações do banco de dados:
+    ```sh
+    rails db:migrate
+    ```
+
+5. Importe os dados do SIGAA:
+    ```sh
+    rails db:import_sigaa_data
+    ```
+
+6. Importe os dados dos usuários:
+    ```sh
+    rails db:import_usuarios
+    ```
+
+7. Inicie o servidor:
+    ```sh
+    rails server
+    ```
+
+Agora você pode acessar o projeto em `http://localhost:3000`.

@@ -1,0 +1,93 @@
+a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  a:hover {
+    opacity: 0.7;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #5d569d;
+    height: 15vh;
+    padding-left: 10px;
+    padding-right: 25px;
+    border-bottom: 4px solid #fff;
+    position: fixed; /* Fixa a navbar no topo */
+    top: 0; /* Alinha a navbar no topo da tela */
+    left: 0; /* Alinha a navbar à esquerda */
+    width: 100%; /* Ocupa toda a largura da tela */
+    z-index: 1000; /* Garante que a navbar fique acima de outros elementos */
+  }
+  
+  .navbarleft {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+    position: absolute;
+    top: 15vh;
+    left: 0;
+    width: 50vh;
+    height: 85vh;
+    background: #5d569d;
+    border-right: 4px solid #ffff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in;
+  }
+  
+  .nav-list.active {
+    transform: translateX(0);
+  }
+  
+  .nav-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+    margin-left: 0;
+  }
+  
+  .icon-menu div {
+    width: 32px;
+    height: 2px;
+    background: #ffff;
+    margin: 8px;
+  }
+  
+  .icon-menu {
+    cursor: pointer;
+    display: block;
+  }
+  
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .icon-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+  }
+  
+  .icon-menu.active .line2 {
+    opacity: 0;
+  }
+  
+  .icon-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+  }
