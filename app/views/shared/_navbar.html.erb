@@ -21,7 +21,44 @@
           <li><a href="/enviar_forms">Enviar Formulários</a></li>
           <li><a href="/resultados">Resultados</a></li>
           <li><a href="/mudar_senha">Alterar a Senha</a></li>
-          <li><button id="import" class="btn btn-primary">Importar Dados</button></li>
+          <li>
+            <button id="import" class="btn btn-primary">Importar Dados</button>
+          </li>
+
+          <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            var importButton = document.getElementById("import");
+
+            if (importButton) {
+              importButton.addEventListener("click", function () {
+                if (!confirm("Tem certeza que deseja importar os usuários?")) {
+                  return;
+                }
+
+                fetch("/admin/import_usuarios", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+                  }
+                })
+                .then(response => response.json())
+                .then(data => {
+                  if (data.error) {
+                    alert("Erro: " + data.error);
+                  } else {
+                    alert(data.message);
+                  }
+                })
+                .catch(error => {
+                  console.error("Erro ao importar usuários:", error);
+                  alert("Ocorreu um erro ao tentar importar os usuários.");
+                });
+              });
+            }
+          });
+          </script>
+
         <% else %>
           <!-- Opções para Usuário Comum -->
           <li><a href="/avaliacao">Avaliações</a></li>

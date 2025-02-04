@@ -11,6 +11,3 @@ Usuario.create!(
   )
 
 puts "✅ Usuário admin criado com sucesso!"
-
-file_path = Rails.root.join('db', 'data', 'class_members.json')
-ImportUsuariosService.import_from_json(file_path)
