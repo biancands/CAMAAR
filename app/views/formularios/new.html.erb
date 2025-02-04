@@ -1,0 +1,17 @@
+#103 Criar um formulario e submeter as turmar que o adm escolher
+<h2>New Formulario</h2>
+
+<%= form_with model: @form, data: {Turbo: false} do |form| %>
+    <%= form.label :titulo, 'Titulo' %>
+    <%= form.text_field :titulo %>
+
+    <%= form.label :descricao, 'Descricao' %>
+    <%= form.text_field :descricao %>
+    
+    <%= form.label :turma, 'Turma' %>
+    <%= form.text_field :turma %>
+
+    <%= form.label :titulo, 'Titulo' %>
+    <%= form.text_field :titulo %>
+
+<% end %>

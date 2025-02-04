@@ -11,7 +11,7 @@ class FormulariosController < ApplicationController
   end
 
   def new
-    @form = formulario.new
+    @form = Formulario.new
   end
 
   def create

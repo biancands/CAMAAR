@@ -1,0 +1,20 @@
+<!- 99 issue Tela para anotar a resposta dos discentes -->
+<%= puts @resposta.conteudo %>
+<%= puts @form[0].turma_id %>
+
+<h2> respostas para pergunta de um form, post do resposta do user </h2>
+
+<%= form_with model: @resposta, data: {Turbo: false} do |form| %>
+    <%= form.label :titulo, 'Titulo' %>
+    <%= form.text_field :titulo %>
+
+    <%= form.label :descricao, 'Descricao' %>
+    <%= form.text_field :descricao %>
+    
+    <%= form.label :turma, 'Turma' %>
+    <%= form.text_field :turma %>
+
+    <%= form.label :titulo, 'Titulo' %>
+    <%= form.text_field :titulo %>
+
+<% end %>
