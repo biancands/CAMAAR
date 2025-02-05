@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".card").forEach((card) => {
       card.addEventListener("click", function () {
           const id = card.getAttribute("data-id"); // Pega o ID do card
-          window.location.href = `/forms/${id}`; // Redireciona para /forms/id
+          console.log('estou funcionadno', id)
+          window.location.href = `/formularios/turma/${id}`; // Redireciona para /forms/id
       });
   });
   console.log('Aqui chega sem ter que reniciar o códgio')

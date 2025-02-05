@@ -1,5 +1,13 @@
+# 99 issue responder formulario.
 class FormulariosController < ApplicationController
+  def formulariosTurma
+    @turma = Turma.find(params[:id])
   
+    @forms = Formulario
+      .select("id, titulo, descricao, TO_CHAR(data_criacao, 'DD/MM/YYYY') AS data_formatada")
+      .where(turma_id: @turma.id)
+  end
+
   def show
     @is_admin = true
 

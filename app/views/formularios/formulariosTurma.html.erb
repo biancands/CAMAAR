@@ -1,0 +1,45 @@
+<% content_for :navbar_title do %>
+    Formulários | <%= @turma[:nome] %> | <%= @turma[:periodo] %>
+  <% end %>
+  
+  <!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
+    <title>Formularios da turma <%= @turma[:nome] %></title>
+    <%= stylesheet_link_tag 'avaliacao', media: 'all' %> <!-- Importa o CSS específico -->
+    <%= javascript_include_tag 'avaliacoes' %> <!-- Importa o JS específico -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  
+  <body>
+    <%= render 'shared/navbar' %> <!-- Inclui a Navbar nesta página -->
+  
+    <div class="bg">
+  
+      <div class="search-container">
+        <i class="fas fa-search"></i> <!-- Ícone de busca -->
+        <input
+          type="text"
+          id="search-bar"
+          placeholder="Buscar formulario da turma..."
+          onkeyup="filtrarAvaliacoes()"
+        >
+      </div>
+
+      <div id="cards-container" class="cards-grid">
+      <% @forms.each do |form| %>
+        <div class="card" data-id="<%= form[:id] %>" data-materia="<%= form[:titulo].downcase %>">
+          <div class="card-header">
+            <h3><%= form[:titulo] %></h3>
+          </div>
+          <p><strong>Descricao:</strong> <%= form[:descricao] %></p>
+          <p><strong>Criado em:</strong> <%= form[:data_formatada] %></p>
+        </div>
+      <% end %>
+    </div>
+      
+  
+    </div>
+  
+  </body>
+  </html>
