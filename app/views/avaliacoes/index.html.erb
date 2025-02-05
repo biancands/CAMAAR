@@ -7,7 +7,7 @@
 <head>
   <title>Avaliação</title>
   <%= stylesheet_link_tag 'avaliacao', media: 'all' %> <!-- Importa o CSS específico -->
-  <%= javascript_include_tag 'avaliacao' %> <!-- Importa o JS específico -->
+  <%= javascript_include_tag 'avaliacoes' %> <!-- Importa o JS específico -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
@@ -18,10 +18,10 @@
 
     <div class="search-container">
       <i class="fas fa-search"></i> <!-- Ícone de busca -->
-      <input 
-        type="text" 
-        id="search-bar" 
-        placeholder="Buscar avaliação..." 
+      <input
+        type="text"
+        id="search-bar"
+        placeholder="Buscar avaliação..."
         onkeyup="filtrarAvaliacoes()"
       >
     </div>

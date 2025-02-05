@@ -1,6 +1,7 @@
 class Usuario < ApplicationRecord
   has_secure_password
-  has_and_belongs_to_many :turmas, join_table: :turmas_usuarios
+
+  has_and_belongs_to_many :turmas
 
   # Validações
   validates :email, :tipo, presence: true
