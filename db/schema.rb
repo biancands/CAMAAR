@@ -10,9 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_04_233450) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_06_051551) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "tipo_resposta_enum", ["objetiva", "multipla escolha", "texto"]
 
   create_table "disciplinas", force: :cascade do |t|
     t.string "codigo", null: false
@@ -37,10 +41,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_04_233450) do
 
   create_table "perguntas", force: :cascade do |t|
     t.text "texto", null: false
-    t.string "tipo_resposta", null: false
     t.bigint "formulario_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.enum "tipo_resposta", default: "texto", null: false, enum_type: "tipo_resposta_enum"
+    t.text "alternativas", default: [], array: true
     t.index ["formulario_id"], name: "index_perguntas_on_formulario_id"
   end
 

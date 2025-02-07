@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   get "mudar_senha", to: "mudar_senha#show"
   resources :perguntas, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   get "/formularios/turma/:id", controller: "formularios", action: "formulariosTurma"
-  resources :formularios, only: [:new, :create, :show, :edit, :update, :destroy]
-  resources :respostas, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  get "/formularios/turma/:idturma/:id", controller: "respostas", action: "new"
+  resources :formularios, only: [:new, :create, :edit, :update, :destroy]
+  resources :respostas, only: [:index, :create, :show, :edit, :update, :destroy]
   post "usuarios/activate", to: "usuarios#activate"
   post "usuarios/login", to: "usuarios#login"
   delete "usuarios/logout", to: "usuarios#logout"

@@ -1,20 +1,58 @@
 <!- 99 issue Tela para anotar a resposta dos discentes -->
-<%= puts @resposta.conteudo %>
-<%= puts @form[0].turma_id %>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>Formularios da turma <%= @form.turma.nome %></title>
+  <%= stylesheet_link_tag 'avaliacao', media: 'all' %> <!-- Importa o CSS específico -->
+  <%= javascript_include_tag 'formularios' %> <!-- Importa o JS específico -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
 
-<h2> respostas para pergunta de um form, post do resposta do user </h2>
-
-<%= form_with model: @resposta, data: {Turbo: false} do |form| %>
-    <%= form.label :titulo, 'Titulo' %>
-    <%= form.text_field :titulo %>
-
-    <%= form.label :descricao, 'Descricao' %>
-    <%= form.text_field :descricao %>
+<body>
+    <% content_for :navbar_title do %>
+        Avaliações | <%= @form.turma.nome %> | <%= @form.turma.periodo %>
+      <% end %>
     
-    <%= form.label :turma, 'Turma' %>
-    <%= form.text_field :turma %>
-
-    <%= form.label :titulo, 'Titulo' %>
-    <%= form.text_field :titulo %>
-
-<% end %>
+      <%= render 'shared/navbar' %>
+    
+      <div class="bg">
+        <div class="containertwo">
+          <h1 class="title title-second"><%= @form.titulo %></h1>
+          <p class="description description-second"><%= @form.descricao %></p>
+    
+          <%= form_with model: @resposta, url: respostas_path, method: :post, local: true do |resp| %>
+            <%= hidden_field_tag "formulario_id", @form.id %>
+            <% @form.perguntas.each do |pergunta| %>
+              <div class="pergunta">
+                <p class="label">
+                  <%= resp.label :conteudo, pergunta.texto, for: "resposta_#{pergunta.id}" %>
+                </p>
+          
+                <%= hidden_field_tag "resposta[#{pergunta.id}][pergunta_id]", pergunta.id %>
+                <%= hidden_field_tag "resposta[#{pergunta.id}][usuario_id]", 1 %> <!-- SUBSTITUA PELO USER -->
+          
+                <% case pergunta.tipo_resposta %>
+                <% when "multipla escolha" %>
+                  <% pergunta.alternativas.each do |alternativa| %>
+                    <div>
+                      <%= check_box_tag "resposta[#{pergunta.id}][conteudo][]", alternativa, false, id: "alternativa_#{pergunta.id}_#{alternativa}" %>
+                      <%= label_tag "alternativa_#{pergunta.id}_#{alternativa}", alternativa %>
+                    </div>
+                  <% end %>
+          
+                <% when "objetiva" %>
+                  <%= select_tag "resposta[#{pergunta.id}][conteudo]", options_for_select(["-- Selecione uma opção --", *pergunta.alternativas]), class: "form-select" %>
+          
+                <% else %>
+                  <%= text_area_tag "resposta[#{pergunta.id}][conteudo]", nil, id: "resposta_#{pergunta.id}", placeholder: "Responda aqui...", class: "form-control" %>
+                <% end %>
+              </div>
+            <% end %>
+                
+            <div class="btn-container">
+              <%= submit_tag "Enviar Respostas", class: "btn btn-second" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+</body>

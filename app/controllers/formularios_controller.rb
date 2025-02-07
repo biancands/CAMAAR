@@ -8,21 +8,21 @@ class FormulariosController < ApplicationController
       .where(turma_id: @turma.id)
   end
 
-  def show
-    @is_admin = true
-
-    formulario = Formulario.all
-
-    return redirect_to root_path, alert: "Formulário não encontrado." if formulario.empty? || (formulario.filter{|obj| obj.id == (params[:id]).to_i}).empty?
-    @form = Formulario.includes(:usuario, turma: :disciplina, perguntas: :respostas).find(params[:id])
-
-  end
+  #def show
+    #formulario = Formulario.all
+#
+    #return redirect_to root_path, alert: "Formulário não encontrado." if formulario.empty? || (formulario.filter{|obj| obj.id == (params[:id]).to_i}).empty?
+    #@form = Formulario.includes(:usuario, turma: :disciplina, :perguntas).find(params[:id])
+#
+  #end
 
   def new
+    @is_admin = true
     @form = Formulario.new
   end
 
   def create
+    @is_admin = true
     @form = formulario.new(formulario_params)
   end
 
