@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     errorMessage.style.display = "block";
                 } else {
                     alert("Login bem-sucedido!");
-                    window.location.href = "/avaliacao"; // Redireciona para a página de avaliações
+                    window.location.href = "/avaliacoes"; // Redireciona para a página de avaliações
                 }
             })
             .catch(error => {

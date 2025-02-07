@@ -127,8 +127,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
     function renderizarTemplates(lista) {
         cardsContainer.innerHTML = "";
-        lista.forEach((avaliacao) => {
-            const card = criarCard(avaliacao);
+        lista.forEach((avaliacoes) => {
+            const card = criarCard(avaliacoes);
             cardsContainer.appendChild(card);
         });
         const cardAdicao = criarCardAdicao();

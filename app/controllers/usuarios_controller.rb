@@ -27,7 +27,7 @@ class UsuariosController < ApplicationController
 
     if usuario&.authenticate(params[:password])
       session[:usuario_id] = usuario.id
-      render json: { message: "Login bem-sucedido!", redirect_to: "/avaliacao" }, status: :ok
+      render json: { message: "Login bem-sucedido!", redirect_to: "/avaliacoes" }, status: :ok
     else
       render json: { error: "Credenciais inválidas" }, status: :unauthorized
     end
