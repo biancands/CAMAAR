@@ -25,12 +25,12 @@
       >
     </div>
 
-    <div id="cards-container" class="cards-grid">
+   <div id="cards-container" class="cards-grid">
       <% @avaliacoes.each do |avaliacao| %>
-        <div class="card" data-materia="<%= avaliacao[:materia].downcase %>">
+        <div class="card" data-id="<%= avaliacao[:id] %>" data-materia="<%= avaliacao[:materia].downcase %>">
           <div class="card-header">
             <h3><%= avaliacao[:materia] %></h3>
-            <i class="fa-solid fa-download download-icon"></i>
+            <i class="fa-solid fa-download download-icon" ></i>
           </div>
           <p><strong>Semestre:</strong> <%= avaliacao[:semestre] %></p>
           <p><strong>Professor:</strong> <%= avaliacao[:professor] %></p>

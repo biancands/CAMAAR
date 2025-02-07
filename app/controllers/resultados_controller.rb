@@ -1,15 +1,48 @@
+require 'csv'
+
 class ResultadosController < ApplicationController
-  def show
+  def index
     @is_admin = true
 
-    @avaliacoes = [
-      { id: 1, materia: "Matemática", semestre: "2023.1", professor: "João Silva" },
-      { id: 2, materia: "Português", semestre: "2023.1", professor: "Maria Oliveira" },
-      { id: 3, materia: "História", semestre: "2023.1", professor: "Carlos Souza" },
-      { id: 4, materia: "Geografia", semestre: "2023.1", professor: "Ana Costa" },
-      { id: 5, materia: "Física", semestre: "2023.1", professor: "Pedro Santos" },
-      { id: 6, materia: "Química", semestre: "2023.1", professor: "Luiza Fernandes" },
-      { id: 7, materia: "Biologia", semestre: "2023.1", professor: "Fernando Lima" }
-    ]
+    @turmas = Turma.includes(:disciplina, :usuarios).all
+    @professores = Usuario.where(tipo: "Docente").index_by(&:id)
+    
+    @avaliacoes = @turmas.map do |turma|
+      professor_id = turma.usuarios.first&.id
+      {
+        id: turma.id,
+        materia: turma.disciplina.nome,
+        semestre: turma.periodo,
+        professor: @professores[professor_id]&.nome
+      }
+    end
+  end
+
+  def download_csv
+    puts params
+    turma = Turma.includes(:disciplina, :usuarios, formularios: { perguntas: :respostas }).find(params[:id])
+
+    @form = Formulario.includes(:usuario, turma: :disciplina, perguntas: :respostas).find(params[:id])
+    professor = turma.usuarios.first&.nome || "Desconhecido"
+
+    csv_data = CSV.generate(headers: true) do |csv|
+      csv << ["Turma ID", "Matéria", "Semestre", "Professor", "Formulário ID", "Título", "Descrição", "Data Criação", "Pergunta ID", "Pergunta", "Resposta ID", "Resposta", "Aluno"]
+
+      turma.formularios.each do |formulario|
+        formulario.perguntas.each do |pergunta|
+          pergunta.respostas.each do |resposta|
+            aluno = Usuario.find_by(id: resposta.usuario_id)&.email || "Desconhecido"
+            csv << [
+              turma.id, turma.disciplina.nome, turma.periodo, professor,
+              formulario.id, formulario.titulo, formulario.descricao, formulario.created_at.strftime("%d/%m/%Y"),
+              pergunta.id, pergunta.texto,
+              resposta.id, resposta.conteudo, aluno
+            ]
+          end
+        end
+      end
+    end
+
+    send_data csv_data, filename: "relatorio_turma_#{turma.id}.csv", type: 'text/csv'
   end
 end

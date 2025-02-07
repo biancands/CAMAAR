@@ -2,7 +2,8 @@
 class Turma < ApplicationRecord
   belongs_to :disciplina
   has_and_belongs_to_many :usuarios
-  
+  has_many :formularios, dependent: :destroy
+
   validates :codigo, :periodo, :horario, presence: true, uniqueness: { scope: :disciplina_id }
   validates :disciplina, presence: true
 end

@@ -12,4 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
           }
       });
   };
+
+  document.querySelectorAll(".card").forEach(icon => {
+    icon.addEventListener("click", function () {
+      const turmaId = this.getAttribute("data-id");
+      if (turmaId) {
+        window.location.href = `/resultados/${turmaId}/download_csv`;
+      }
+    });
+  });
 });

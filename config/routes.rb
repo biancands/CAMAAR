@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root "sessions#new"
   get "login", to: "sessions#new"
   resources :avaliacoes, only: [:index, :new, :create, :show, :edit, :update, :destroy]
-  get "resultados", to: "resultados#show"
+  resources :resultados, only: [:index] do
+    member do
+      get :download_csv
+    end
+  end
   get "templates", to: "templates#show"
   get "enviar_forms", to: "enviar_forms#show"
   get "mudar_senha", to: "mudar_senha#show"
