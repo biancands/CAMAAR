@@ -46,7 +46,7 @@ Sistema para avaliação de atividades acadêmicas remotas do CIC
     ```
 8. Cadastrar usuarios:
    ```sh
-   Faça login usando usando os dados do admin, clica em Importar Dados. Com isso, os usuarios serão cadastrados, um token será enviado para o email de cada usuario e tambem será retornado no terminal. Copia o token do terminal e usa para finalizar o cadastro dos usuarios na tela de Cadastro.
+   Faça login usando usando os dados do admin (dispníveis no arquivo seeds), clica em Importar Dados. Com isso, os usuarios serão cadastrados, um token será enviado para o email de cada usuario e tambem será retornado no terminal. Copia o token do terminal e usa para finalizar o cadastro dos usuarios na tela de Cadastro.
    ```
 
 9. Importar dados do SIGAA:
