@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,AddDepartamentoAndFormacaoToUsuarios">
 
-    <meta name="description" content="Documentation for the AddDepartamentoAndFormacaoToUsuarios class">
+    <meta name="description" content="class AddDepartamentoAndFormacaoToUsuarios: Esta migração utiliza a versão 8. ActiveRecord.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,6 +99,21 @@
 
   <section class="description">
     
+<p>Esta migração adiciona duas colunas à tabela ‘usuarios`:</p>
+<ul><li>
+<p>‘departamento`: uma coluna do tipo string que armazena o departamento do usuário.</p>
+</li><li>
+<p>‘formacao`: uma coluna do tipo string que armazena a formação do usuário.</p>
+</li></ul>
+
+<p>Exemplos:</p>
+
+<pre class="ruby"><span class="ruby-identifier">add_column</span> <span class="ruby-value">:usuarios</span>, <span class="ruby-value">:departamento</span>, <span class="ruby-value">:string</span>
+<span class="ruby-identifier">add_column</span> <span class="ruby-value">:usuarios</span>, <span class="ruby-value">:formacao</span>, <span class="ruby-value">:string</span>
+</pre>
+
+<p>@note Esta migração utiliza a versão 8.0 do ActiveRecord.</p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">
@@ -130,7 +145,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20250201233616_add_departamento_and_formacao_to_usuarios.rb, line 2</span>
+            <pre><span class="ruby-comment"># File db/migrate/20250201233616_add_departamento_and_formacao_to_usuarios.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>
   <span class="ruby-identifier">add_column</span> <span class="ruby-value">:usuarios</span>, <span class="ruby-value">:departamento</span>, <span class="ruby-value">:string</span>
   <span class="ruby-identifier">add_column</span> <span class="ruby-value">:usuarios</span>, <span class="ruby-value">:formacao</span>, <span class="ruby-value">:string</span>

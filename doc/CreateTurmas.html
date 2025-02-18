@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,CreateTurmas">
 
-    <meta name="description" content="Documentation for the CreateTurmas class">
+    <meta name="description" content="class CreateTurmas: Esta migração cria a tabela &#39;turmas&#39; e define suas colunas e relacionamentos.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,6 +99,23 @@
 
   <section class="description">
     
+<p>Cria a tabela ‘turmas’ com os seguintes campos:</p>
+<ul><li>
+<p>codigo: string</p>
+</li><li>
+<p>nome: string</p>
+</li><li>
+<p>periodo: string (campo para o semestre, ex: “2021.2”)</p>
+</li><li>
+<p>horario: string (campo para o horário, ex: “35M12”)</p>
+</li><li>
+<p>disciplina: referência para a tabela ‘disciplinas’, não pode ser nulo, com chave estrangeira</p>
+</li><li>
+<p>timestamps: campos automáticos ‘created_at’ e ‘updated_at’</p>
+</li></ul>
+
+<p>Esta migração cria a tabela ‘turmas’ e define suas colunas e relacionamentos.</p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">
@@ -130,7 +147,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20250129210115_create_turmas.rb, line 2</span>
+            <pre><span class="ruby-comment"># File db/migrate/20250129210115_create_turmas.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>
   <span class="ruby-identifier">create_table</span> <span class="ruby-value">:turmas</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-value">:codigo</span>

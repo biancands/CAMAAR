@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,FormsController">
 
-    <meta name="description" content="Documentation for the FormsController class">
+    <meta name="description" content="class FormsController: Controlador responsável pelas ações relacionadas aos formulários.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,6 +99,8 @@
 
   <section class="description">
     
+<p>Controlador responsável pelas ações relacionadas aos formulários.</p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">
@@ -130,10 +132,10 @@
 
         <div class="method-description">
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/forms_controller.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/controllers/forms_controller.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
   <span class="ruby-ivar">@is_admin</span> = <span class="ruby-keyword">true</span>
-  
+
   <span class="ruby-identifier">forms_data</span> = [
     {
       <span class="ruby-value">id:</span> <span class="ruby-value">1</span>,
@@ -147,7 +149,7 @@
           <span class="ruby-value">id_pergunta:</span> <span class="ruby-value">1</span>,
           <span class="ruby-value">texto:</span> <span class="ruby-string">&quot;Como você avalia o material?&quot;</span>,
           <span class="ruby-value">tipo_resposta:</span> <span class="ruby-string">&quot;Múltipla escolha&quot;</span>,
-          <span class="ruby-value">escolhas:</span> [<span class="ruby-string">&quot;Muito bom&quot;</span>, <span class="ruby-string">&quot;Bom&quot;</span>, <span class="ruby-string">&quot;Satisfatório&quot;</span>, <span class="ruby-string">&quot;Ruim&quot;</span>, <span class="ruby-string">&quot;Péssimo&quot;</span>]
+          <span class="ruby-value">escolhas:</span> [ <span class="ruby-string">&quot;Muito bom&quot;</span>, <span class="ruby-string">&quot;Bom&quot;</span>, <span class="ruby-string">&quot;Satisfatório&quot;</span>, <span class="ruby-string">&quot;Ruim&quot;</span>, <span class="ruby-string">&quot;Péssimo&quot;</span> ]
         },
         {
           <span class="ruby-value">id_pergunta:</span> <span class="ruby-value">2</span>,
@@ -175,7 +177,7 @@
           <span class="ruby-value">id_pergunta:</span> <span class="ruby-value">1</span>,
           <span class="ruby-value">texto:</span> <span class="ruby-string">&quot;Qual é o sujeito da frase &#39;O gato caçou o rato&#39;?&quot;</span>,
           <span class="ruby-value">tipo_resposta:</span> <span class="ruby-string">&quot;Múltipla escolha&quot;</span>,
-          <span class="ruby-value">escolhas:</span> [<span class="ruby-string">&quot;O gato&quot;</span>, <span class="ruby-string">&quot;O rato&quot;</span>, <span class="ruby-string">&quot;Caçou&quot;</span>, <span class="ruby-string">&quot;Nenhuma das alternativas&quot;</span>]
+          <span class="ruby-value">escolhas:</span> [ <span class="ruby-string">&quot;O gato&quot;</span>, <span class="ruby-string">&quot;O rato&quot;</span>, <span class="ruby-string">&quot;Caçou&quot;</span>, <span class="ruby-string">&quot;Nenhuma das alternativas&quot;</span> ]
         },
         {
           <span class="ruby-value">id_pergunta:</span> <span class="ruby-value">2</span>,
@@ -194,7 +196,9 @@
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
+          <p>Exibe um formulário específico.</p>
+
+<p>@return [void]</p>
         </div>
 
 

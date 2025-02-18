@@ -1,7 +1,11 @@
+# Controlador responsável pelas ações relacionadas aos formulários.
 class FormsController < ApplicationController
+  # Exibe um formulário específico.
+  #
+  # @return [void]
   def show
     @is_admin = true
-    
+
     forms_data = [
       {
         id: 1,
@@ -15,7 +19,7 @@ class FormsController < ApplicationController
             id_pergunta: 1,
             texto: "Como você avalia o material?",
             tipo_resposta: "Múltipla escolha",
-            escolhas: ["Muito bom", "Bom", "Satisfatório", "Ruim", "Péssimo"]
+            escolhas: [ "Muito bom", "Bom", "Satisfatório", "Ruim", "Péssimo" ]
           },
           {
             id_pergunta: 2,
@@ -43,7 +47,7 @@ class FormsController < ApplicationController
             id_pergunta: 1,
             texto: "Qual é o sujeito da frase 'O gato caçou o rato'?",
             tipo_resposta: "Múltipla escolha",
-            escolhas: ["O gato", "O rato", "Caçou", "Nenhuma das alternativas"]
+            escolhas: [ "O gato", "O rato", "Caçou", "Nenhuma das alternativas" ]
           },
           {
             id_pergunta: 2,

@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,SessionsController">
 
-    <meta name="description" content="Documentation for the SessionsController class">
+    <meta name="description" content="class SessionsController: Controlador responsável pelas sessões de usuário. Inicializa uma nova sessão de administrador.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -100,6 +100,23 @@
 
   <section class="description">
     
+<p>Controlador responsável pelas sessões de usuário.</p>
+
+<p>Métodos:</p>
+<ul><li>
+<p>new: Inicializa uma nova sessão de administrador.</p>
+</li><li>
+<p>destroy: Encerra a sessão do usuário e redireciona para a página inicial com uma mensagem de sucesso.</p>
+</li></ul>
+
+<p>Exemplos:</p>
+
+<pre class="ruby"><span class="ruby-constant">SessionsController</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-constant">SessionsController</span>.<span class="ruby-identifier">destroy</span>
+</pre>
+
+<p>Arquivo: /home/bianca/Projects/CAMAAR/app/controllers/sessions_controller.rb</p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">
@@ -131,7 +148,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 6</span>
+            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-identifier">session</span>[<span class="ruby-value">:usuario_id</span>] = <span class="ruby-keyword">nil</span>
   <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&quot;Logout realizado com sucesso!&quot;</span>
@@ -161,7 +178,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
   <span class="ruby-ivar">@is_admin</span> = <span class="ruby-keyword">true</span>
 <span class="ruby-keyword">end</span></pre>

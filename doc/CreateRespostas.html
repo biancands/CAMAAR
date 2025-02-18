@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,CreateRespostas">
 
-    <meta name="description" content="Documentation for the CreateRespostas class">
+    <meta name="description" content="class CreateRespostas: Cria a tabela &#39;respostas&#39; com colunas e índices apropriados. Conteúdo da resposta.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,6 +99,39 @@
 
   <section class="description">
     
+<p>Cria a tabela ‘respostas’ com colunas e índices apropriados.</p>
+
+<p>Tabela: respostas Colunas:</p>
+<ul><li>
+<p>conteudo (text, não nulo): Conteúdo da resposta.</p>
+</li><li>
+<p>data_resposta (datetime, não nulo, padrão: CURRENT_TIMESTAMP): Data e hora da resposta.</p>
+</li><li>
+<p>usuario_id (references, não nulo): Referência ao usuário que respondeu.</p>
+</li><li>
+<p>pergunta_id (references, não nulo): Referência à pergunta respondida.</p>
+</li><li>
+<p>created_at (datetime): Data e hora de criação do registro.</p>
+</li><li>
+<p>updated_at (datetime): Data e hora da última atualização do registro.</p>
+</li></ul>
+
+<p>Índices:</p>
+<ul><li>
+<p>data_resposta: Índice para otimização de consultas por data de resposta.</p>
+</li><li><dl class="rdoc-list label-list"><dt>:usuario_id, :pergunta_id</dt>
+<dd>
+<p>(único): Índice único para garantir que um usuário só possa responder uma vez a uma pergunta específica.</p>
+</dd></dl>
+</li></ul>
+
+<p>Chaves estrangeiras:</p>
+<ul><li>
+<p>usuario_id: Referencia a tabela ‘usuarios’ com restrição de integridade.</p>
+</li><li>
+<p>pergunta_id: Referencia a tabela ‘perguntas’ com restrição de integridade.</p>
+</li></ul>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">
@@ -130,12 +163,12 @@
 
         <div class="method-description">
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20250129210120_create_respostas.rb, line 2</span>
+            <pre><span class="ruby-comment"># File db/migrate/20250129210120_create_respostas.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>
   <span class="ruby-identifier">create_table</span> <span class="ruby-value">:respostas</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">text</span> <span class="ruby-value">:conteudo</span>, <span class="ruby-value">null:</span> <span class="ruby-keyword">false</span>
     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-value">:data_resposta</span>, <span class="ruby-value">null:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">default:</span> <span class="ruby-operator">-&gt;</span> { <span class="ruby-string">&#39;CURRENT_TIMESTAMP&#39;</span> }
-    
+
     <span class="ruby-comment"># Chaves estrangeiras com constraints rigorosas</span>
     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">references</span> <span class="ruby-value">:usuario</span>, <span class="ruby-value">null:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">foreign_key:</span> { <span class="ruby-value">to_table:</span> <span class="ruby-value">:usuarios</span> }
     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">references</span> <span class="ruby-value">:pergunta</span>, <span class="ruby-value">null:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">foreign_key:</span> { <span class="ruby-value">to_table:</span> <span class="ruby-value">:perguntas</span> }
@@ -145,7 +178,7 @@
 
   <span class="ruby-comment"># Índices para otimização</span>
   <span class="ruby-identifier">add_index</span> <span class="ruby-value">:respostas</span>, <span class="ruby-value">:data_resposta</span>
-  <span class="ruby-identifier">add_index</span> <span class="ruby-value">:respostas</span>, [<span class="ruby-value">:usuario_id</span>, <span class="ruby-value">:pergunta_id</span>], <span class="ruby-value">unique:</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">add_index</span> <span class="ruby-value">:respostas</span>, [ <span class="ruby-value">:usuario_id</span>, <span class="ruby-value">:pergunta_id</span> ], <span class="ruby-value">unique:</span> <span class="ruby-keyword">true</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

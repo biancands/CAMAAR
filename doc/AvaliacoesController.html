@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,AvaliacoesController">
 
-    <meta name="description" content="Documentation for the AvaliacoesController class">
+    <meta name="description" content="class AvaliacoesController: Controlador responsável pelas ações relacionadas às avaliações.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,6 +99,8 @@
 
   <section class="description">
     
+<p>Controlador responsável pelas ações relacionadas às avaliações.</p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">
@@ -130,11 +132,11 @@
 
         <div class="method-description">
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/avaliacoes_controller.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/controllers/avaliacoes_controller.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
   <span class="ruby-ivar">@is_admin</span> = <span class="ruby-keyword">true</span>
 
-      <span class="ruby-comment"># Simulação de dados (substitua por uma busca no banco de dados no futuro)</span>
+  <span class="ruby-comment"># Simulação de dados (substitua por uma busca no banco de dados no futuro)</span>
   <span class="ruby-ivar">@avaliacoes</span> = [
     { <span class="ruby-value">id:</span> <span class="ruby-value">1</span>, <span class="ruby-value">materia:</span> <span class="ruby-string">&quot;Matemática&quot;</span>, <span class="ruby-value">semestre:</span> <span class="ruby-string">&quot;2023.1&quot;</span>, <span class="ruby-value">professor:</span> <span class="ruby-string">&quot;João Silva&quot;</span> },
     { <span class="ruby-value">id:</span> <span class="ruby-value">2</span>, <span class="ruby-value">materia:</span> <span class="ruby-string">&quot;Português&quot;</span>, <span class="ruby-value">semestre:</span> <span class="ruby-string">&quot;2023.1&quot;</span>, <span class="ruby-value">professor:</span> <span class="ruby-string">&quot;Maria Oliveira&quot;</span> },
@@ -142,11 +144,13 @@
     { <span class="ruby-value">id:</span> <span class="ruby-value">4</span>, <span class="ruby-value">materia:</span> <span class="ruby-string">&quot;Geografia&quot;</span>, <span class="ruby-value">semestre:</span> <span class="ruby-string">&quot;2023.1&quot;</span>, <span class="ruby-value">professor:</span> <span class="ruby-string">&quot;Ana Costa&quot;</span> },
     { <span class="ruby-value">id:</span> <span class="ruby-value">5</span>, <span class="ruby-value">materia:</span> <span class="ruby-string">&quot;Física&quot;</span>, <span class="ruby-value">semestre:</span> <span class="ruby-string">&quot;2023.1&quot;</span>, <span class="ruby-value">professor:</span> <span class="ruby-string">&quot;Pedro Santos&quot;</span> },
     { <span class="ruby-value">id:</span> <span class="ruby-value">6</span>, <span class="ruby-value">materia:</span> <span class="ruby-string">&quot;Química&quot;</span>, <span class="ruby-value">semestre:</span> <span class="ruby-string">&quot;2023.1&quot;</span>, <span class="ruby-value">professor:</span> <span class="ruby-string">&quot;Luiza Fernandes&quot;</span> },
-    { <span class="ruby-value">id:</span> <span class="ruby-value">7</span>, <span class="ruby-value">materia:</span> <span class="ruby-string">&quot;Biologia&quot;</span>, <span class="ruby-value">semestre:</span> <span class="ruby-string">&quot;2023.1&quot;</span>, <span class="ruby-value">professor:</span> <span class="ruby-string">&quot;Fernando Lima&quot;</span> },
-    ]
+    { <span class="ruby-value">id:</span> <span class="ruby-value">7</span>, <span class="ruby-value">materia:</span> <span class="ruby-string">&quot;Biologia&quot;</span>, <span class="ruby-value">semestre:</span> <span class="ruby-string">&quot;2023.1&quot;</span>, <span class="ruby-value">professor:</span> <span class="ruby-string">&quot;Fernando Lima&quot;</span> }
+  ]
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
+          <p>Exibe as avaliações.</p>
+
+<p>@return [void]</p>
         </div>
 
 

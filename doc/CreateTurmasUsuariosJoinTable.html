@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,CreateTurmasUsuariosJoinTable">
 
-    <meta name="description" content="class CreateTurmasUsuariosJoinTable: XXXXXXXXXXXXXX_create_turmas_usuarios_join_table.">
+    <meta name="description" content="class CreateTurmasUsuariosJoinTable: XXXXXXXXXXXXXX_create_turmas_usuarios_join_table. Cria a tabela de junção entre turmas e usuários.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,7 +99,21 @@
 
   <section class="description">
     
-<p>db/migrate/XXXXXXXXXXXXXX_create_turmas_usuarios_join_table.rb</p>
+<p>db/migrate/XXXXXXXXXXXXXX_create_turmas_usuarios_join_table.rb Cria a tabela de junção entre turmas e usuários.</p>
+
+<p>Esta migração cria uma tabela de junção chamada ‘turmas_usuarios` para estabelecer um relacionamento muitos-para-muitos entre as tabelas `turmas` e `usuarios`.</p>
+
+<p>Índices compostos são adicionados para melhorar a performance das consultas que envolvem as colunas ‘turma_id` e `usuario_id`.</p>
+
+<p>Exemplos:</p>
+
+<pre class="ruby"><span class="ruby-identifier">create_join_table</span> <span class="ruby-value">:turmas</span>, <span class="ruby-value">:usuarios</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">index</span> [<span class="ruby-value">:turma_id</span>, <span class="ruby-value">:usuario_id</span>]
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">index</span> [<span class="ruby-value">:usuario_id</span>, <span class="ruby-value">:turma_id</span>]
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>@see ActiveRecord::Migration @see ActiveRecord::ConnectionAdapters::SchemaStatements#create_join_table</p>
 
   </section>
 
@@ -132,11 +146,11 @@
 
         <div class="method-description">
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20250129225430_create_turmas_usuarios_join_table.rb, line 3</span>
+            <pre><span class="ruby-comment"># File db/migrate/20250129225430_create_turmas_usuarios_join_table.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>
   <span class="ruby-identifier">create_join_table</span> <span class="ruby-value">:turmas</span>, <span class="ruby-value">:usuarios</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">index</span> [<span class="ruby-value">:turma_id</span>, <span class="ruby-value">:usuario_id</span>]
-    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">index</span> [<span class="ruby-value">:usuario_id</span>, <span class="ruby-value">:turma_id</span>]
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">index</span> [ <span class="ruby-value">:turma_id</span>, <span class="ruby-value">:usuario_id</span> ]
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">index</span> [ <span class="ruby-value">:usuario_id</span>, <span class="ruby-value">:turma_id</span> ]
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>

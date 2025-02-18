@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,CreateDisciplinas">
 
-    <meta name="description" content="Documentation for the CreateDisciplinas class">
+    <meta name="description" content="class CreateDisciplinas: Cria a tabela &#39;disciplinas&#39; com colunas &#39;codigo&#39;, &#39;nome&#39; e &#39;descricao&#39;. Rails.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,6 +99,28 @@
 
   <section class="description">
     
+<p>Cria a tabela ‘disciplinas’ com colunas ‘codigo’, ‘nome’ e ‘descricao’.</p>
+
+<p>Colunas:</p>
+<ul><li>
+<p>codigo: string, não nulo, com índice único.</p>
+</li><li>
+<p>nome: string, não nulo.</p>
+</li><li>
+<p>descricao: texto, opcional.</p>
+</li><li>
+<p>created_at: datetime, gerado automaticamente pelo Rails.</p>
+</li><li>
+<p>updated_at: datetime, gerado automaticamente pelo Rails.</p>
+</li></ul>
+
+<p>Índices:</p>
+<ul><li>
+<p>índice único na coluna ‘codigo’.</p>
+</li></ul>
+
+<p>Esta migração cria a tabela ‘disciplinas’ e adiciona um índice único na coluna ‘codigo’ para garantir que não haja duplicatas.</p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">
@@ -130,7 +152,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20250129210116_create_disciplinas.rb, line 2</span>
+            <pre><span class="ruby-comment"># File db/migrate/20250129210116_create_disciplinas.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>
   <span class="ruby-identifier">create_table</span> <span class="ruby-value">:disciplinas</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-value">:codigo</span>, <span class="ruby-value">null:</span> <span class="ruby-keyword">false</span>

@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,AddActivationTokenToUsuarios">
 
-    <meta name="description" content="Documentation for the AddActivationTokenToUsuarios class">
+    <meta name="description" content="class AddActivationTokenToUsuarios: Além disso, um índice único é adicionado à coluna `activation_token` para garantir que não haja tokens duplicados.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,6 +99,22 @@
 
   <section class="description">
     
+<p>Esta migração adiciona duas colunas à tabela ‘usuarios`:</p>
+<ul><li>
+<p>‘activation_token`: uma string única que será usada para armazenar o token de ativação.</p>
+</li><li>
+<p>‘activation_token_sent_at`: um datetime que registra quando o token de ativação foi enviado.</p>
+</li></ul>
+
+<p>Além disso, um índice único é adicionado à coluna ‘activation_token` para garantir que não haja tokens duplicados.</p>
+
+<p>Exemplos:</p>
+
+<pre class="ruby"><span class="ruby-identifier">add_column</span> <span class="ruby-value">:usuarios</span>, <span class="ruby-value">:activation_token</span>, <span class="ruby-value">:string</span>, <span class="ruby-value">unique:</span> <span class="ruby-keyword">true</span>
+<span class="ruby-identifier">add_column</span> <span class="ruby-value">:usuarios</span>, <span class="ruby-value">:activation_token_sent_at</span>, <span class="ruby-value">:datetime</span>
+<span class="ruby-identifier">add_index</span> <span class="ruby-value">:usuarios</span>, <span class="ruby-value">:activation_token</span>, <span class="ruby-value">unique:</span> <span class="ruby-keyword">true</span>
+</pre>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">
@@ -130,7 +146,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20250202050336_add_activation_token_to_usuarios.rb, line 2</span>
+            <pre><span class="ruby-comment"># File db/migrate/20250202050336_add_activation_token_to_usuarios.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>
   <span class="ruby-identifier">add_column</span> <span class="ruby-value">:usuarios</span>, <span class="ruby-value">:activation_token</span>, <span class="ruby-value">:string</span>, <span class="ruby-value">unique:</span> <span class="ruby-keyword">true</span>
   <span class="ruby-identifier">add_column</span> <span class="ruby-value">:usuarios</span>, <span class="ruby-value">:activation_token_sent_at</span>, <span class="ruby-value">:datetime</span>

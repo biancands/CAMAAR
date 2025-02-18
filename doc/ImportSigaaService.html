@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,ImportSigaaService">
 
-    <meta name="description" content="class ImportSigaaService: app/services/sigaa_import_service.rb">
+    <meta name="description" content="class ImportSigaaService: Serviço para importar dados do SIGAA para o sistema. Este serviço lê arquivos JSON contendo informações sobre disciplinas, turmas e usuários, e realiz">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -106,7 +106,62 @@
 
   <section class="description">
     
-<p>app/services/sigaa_import_service.rb</p>
+<p>app/services/sigaa_import_service.rb Serviço para importar dados do SIGAA para o sistema.</p>
+
+<p>Este serviço lê arquivos JSON contendo informações sobre disciplinas, turmas e usuários, e realiza a importação desses dados para o banco de dados da aplicação.</p>
+
+<p>@param data_dir [String] Diretório onde os arquivos JSON estão localizados. Padrão: “db/data”.</p>
+
+<p>@example Uso básico</p>
+
+<pre class="ruby"><span class="ruby-identifier">service</span> = <span class="ruby-constant">ImportSigaaService</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">service</span>.<span class="ruby-identifier">import</span>
+</pre>
+
+<p>@note Este serviço utiliza transações do ActiveRecord para garantir a consistência dos dados.</p>
+
+<p>@!attribute [r] data_dir</p>
+
+<pre>@return [String] Diretório onde os arquivos JSON estão localizados.</pre>
+
+<p>@!attribute [r] classes_json</p>
+
+<pre>@return [Array&lt;Hash&gt;] Dados das disciplinas e turmas extraídos do arquivo &quot;classes.json&quot;.</pre>
+
+<p>@!attribute [r] class_members_json</p>
+
+<pre>@return [Array&lt;Hash&gt;] Dados dos membros das turmas extraídos do arquivo &quot;class_members.json&quot;.</pre>
+
+<p>Métodos principais: @method import</p>
+
+<pre>Realiza a importação dos dados do SIGAA.
+Envolve a importação de disciplinas, turmas, usuários e a associação de usuários às turmas.
+Registra a importação no banco de dados.</pre>
+
+<p>Métodos privados: @method log(message)</p>
+
+<pre>Registra uma mensagem de log com timestamp.
+@param message [String] Mensagem a ser registrada.</pre>
+
+<p>@method import_disciplinas</p>
+
+<pre>Importa as disciplinas a partir dos dados JSON.</pre>
+
+<p>@method import_turmas</p>
+
+<pre>Importa as turmas a partir dos dados JSON.</pre>
+
+<p>@method import_usuarios</p>
+
+<pre>Importa os usuários (docentes e discentes) a partir dos dados JSON.</pre>
+
+<p>@method associate_usuarios_to_turmas</p>
+
+<pre>Associa os usuários às turmas correspondentes.</pre>
+
+<p>@method register_import</p>
+
+<pre>Registra a importação no banco de dados, incluindo estatísticas sobre a importação.</pre>
 
   </section>
 
@@ -139,7 +194,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/services/import_sigaa_service.rb, line 3</span>
+            <pre><span class="ruby-comment"># File app/services/import_sigaa_service.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">data_dir:</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;db&quot;</span>, <span class="ruby-string">&quot;data&quot;</span>))
   <span class="ruby-ivar">@data_dir</span> = <span class="ruby-identifier">data_dir</span>
   <span class="ruby-ivar">@classes_json</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-ivar">@data_dir</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;classes.json&quot;</span>)))
@@ -177,7 +232,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="import-source">
-            <pre><span class="ruby-comment"># File app/services/import_sigaa_service.rb, line 9</span>
+            <pre><span class="ruby-comment"># File app/services/import_sigaa_service.rb, line 56</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">import</span>
   <span class="ruby-identifier">log</span> <span class="ruby-string">&quot;Iniciando importação do SIGAA...&quot;</span>
   <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>

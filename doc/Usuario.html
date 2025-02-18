@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,Usuario">
 
-    <meta name="description" content="Documentation for the Usuario class">
+    <meta name="description" content="class Usuario: Classe Usuario representa um usuário no sistema.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -102,6 +102,50 @@
 
   <section class="description">
     
+<p>Classe <a href="Usuario.html"><code>Usuario</code></a> representa um usuário no sistema.</p>
+
+<p>Atributos:</p>
+<ul><li>
+<p>email: string, obrigatório</p>
+</li><li>
+<p>tipo: string, obrigatório (pode ser “Discente”, “Docente” ou “Admin”)</p>
+</li><li>
+<p>matricula: string, único, pode ser nulo</p>
+</li><li>
+<p>curso: string, obrigatório se o tipo for “Discente”</p>
+</li><li>
+<p>departamento: string, obrigatório se o tipo for “Docente”</p>
+</li><li>
+<p>formacao: string, obrigatório se o tipo for “Docente”</p>
+</li></ul>
+
+<p>Associações:</p>
+<ul><li>
+<p>has_and_belongs_to_many :turmas, join_table: :turmas_usuarios</p>
+</li></ul>
+
+<p>Métodos:</p>
+<ul><li>
+<p>discente?: retorna true se o tipo for “Discente”</p>
+</li><li>
+<p>docente?: retorna true se o tipo for “Docente”</p>
+</li><li>
+<p>admin?: retorna true se o tipo for “Admin”</p>
+</li><li>
+<p>toggle_admin!: promove ou destitui um usuário como administrador</p>
+</li></ul>
+
+<p>Validações:</p>
+<ul><li>
+<p>email e tipo são obrigatórios</p>
+</li><li>
+<p>matricula deve ser única, mas pode ser nula</p>
+</li><li>
+<p>curso é obrigatório se o tipo for “Discente”</p>
+</li><li>
+<p>departamento e formacao são obrigatórios se o tipo for “Docente”</p>
+</li></ul>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">
@@ -133,7 +177,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="admin-3F-source">
-            <pre><span class="ruby-comment"># File app/models/usuario.rb, line 22</span>
+            <pre><span class="ruby-comment"># File app/models/usuario.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">admin?</span>
   <span class="ruby-identifier">tipo</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Admin&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -162,7 +206,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="discente-3F-source">
-            <pre><span class="ruby-comment"># File app/models/usuario.rb, line 14</span>
+            <pre><span class="ruby-comment"># File app/models/usuario.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">discente?</span>
   <span class="ruby-identifier">tipo</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Discente&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -191,7 +235,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="docente-3F-source">
-            <pre><span class="ruby-comment"># File app/models/usuario.rb, line 18</span>
+            <pre><span class="ruby-comment"># File app/models/usuario.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">docente?</span>
   <span class="ruby-identifier">tipo</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Docente&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -220,7 +264,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="toggle_admin-21-source">
-            <pre><span class="ruby-comment"># File app/models/usuario.rb, line 27</span>
+            <pre><span class="ruby-comment"># File app/models/usuario.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">toggle_admin!</span>
   <span class="ruby-identifier">update</span>(<span class="ruby-value">tipo:</span> <span class="ruby-identifier">admin?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;Discente&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;Admin&quot;</span>)
 <span class="ruby-keyword">end</span></pre>

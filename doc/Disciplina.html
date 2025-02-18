@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,Disciplina">
 
-    <meta name="description" content="Documentation for the Disciplina class">
+    <meta name="description" content="class Disciplina: Classe que representa uma Disciplina no sistema. Exemplos disciplina = Disciplina.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -64,6 +64,19 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>      <a href="#class-Disciplina-label-Valida-C3-A7-C3-B5es">Validações</a>
+          <li>      <a href="#class-Disciplina-label-Exemplos">Exemplos</a>
+          <li>      <a href="#class-Disciplina-label-Atributos">Atributos</a>
+
+  </ul>
+</div>
+
   
   <div id="parent-class-section" class="nav-section">
   <h3>Ancestors</h3>
@@ -92,6 +105,31 @@
 
   <section class="description">
     
+<p>Classe que representa uma <a href="Disciplina.html"><code>Disciplina</code></a> no sistema.</p>
+
+<h2 id="class-Disciplina-label-Valida-C3-A7-C3-B5es">Validações<span><a href="#class-Disciplina-label-Valida-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><code>codigo</code>: deve estar presente e ser único.</p>
+</li><li>
+<p><code>nome</code>: deve estar presente.</p>
+</li></ul>
+
+<h2 id="class-Disciplina-label-Exemplos">Exemplos<span><a href="#class-Disciplina-label-Exemplos">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">disciplina</span> = <span class="ruby-constant">Disciplina</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">codigo:</span> <span class="ruby-string">&#39;MAT101&#39;</span>, <span class="ruby-value">nome:</span> <span class="ruby-string">&#39;Matemática&#39;</span>)
+<span class="ruby-identifier">disciplina</span>.<span class="ruby-identifier">valid?</span> <span class="ruby-comment"># =&gt; true</span>
+
+<span class="ruby-identifier">disciplina_invalida</span> = <span class="ruby-constant">Disciplina</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">codigo:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">nome:</span> <span class="ruby-string">&#39;Física&#39;</span>)
+<span class="ruby-identifier">disciplina_invalida</span>.<span class="ruby-identifier">valid?</span> <span class="ruby-comment"># =&gt; false</span>
+</pre>
+
+<h2 id="class-Disciplina-label-Atributos">Atributos<span><a href="#class-Disciplina-label-Atributos">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><code>codigo</code>: String que representa o código da disciplina.</p>
+</li><li>
+<p><code>nome</code>: String que representa o nome da disciplina.</p>
+</li></ul>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">

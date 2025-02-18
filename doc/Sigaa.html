@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,Sigaa">
 
-    <meta name="description" content="Documentation for the Sigaa class">
+    <meta name="description" content="class Sigaa: Classe que representa o modelo Sigaa. Tipo de dado que deve estar presente.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -64,6 +64,18 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>      <a href="#class-Sigaa-label-Valida-C3-A7-C3-B5es">Validações</a>
+          <li>      <a href="#class-Sigaa-label-Exemplos">Exemplos</a>
+
+  </ul>
+</div>
+
   
   <div id="parent-class-section" class="nav-section">
   <h3>Ancestors</h3>
@@ -92,6 +104,25 @@
 
   <section class="description">
     
+<p>Classe que representa o modelo <a href="Sigaa.html"><code>Sigaa</code></a>.</p>
+
+<p>@!attribute [rw] tipo_dado</p>
+
+<pre>Tipo de dado que deve estar presente.</pre>
+
+<h2 id="class-Sigaa-label-Valida-C3-A7-C3-B5es">Validações<span><a href="#class-Sigaa-label-Valida-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Presença de tipo_dado</p>
+</li></ul>
+
+<h2 id="class-Sigaa-label-Exemplos">Exemplos<span><a href="#class-Sigaa-label-Exemplos">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">sigaa</span> = <span class="ruby-constant">Sigaa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">tipo_dado:</span> <span class="ruby-string">&#39;exemplo&#39;</span>)
+<span class="ruby-identifier">sigaa</span>.<span class="ruby-identifier">valid?</span> <span class="ruby-comment"># =&gt; true</span>
+</pre>
+
+<p>@see <a href="ApplicationRecord.html"><code>ApplicationRecord</code></a></p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">

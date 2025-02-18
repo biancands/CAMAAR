@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,CreatePerguntas">
 
-    <meta name="description" content="Documentation for the CreatePerguntas class">
+    <meta name="description" content="class CreatePerguntas: Cria a tabela &#39;perguntas&#39; com as colunas &#39;texto&#39;, &#39;tipo_resposta&#39;, &#39;formulario_id&#39; e timestamps. Texto da pergunta (não pode ser nulo).">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,6 +99,26 @@
 
   <section class="description">
     
+<p>Cria a tabela ‘perguntas’ com as colunas ‘texto’, ‘tipo_resposta’, ‘formulario_id’ e timestamps.</p>
+
+<p>Colunas:</p>
+<ul><li>
+<p>texto: Texto da pergunta (não pode ser nulo).</p>
+</li><li>
+<p>tipo_resposta: Tipo de resposta da pergunta (não pode ser nulo).</p>
+</li><li>
+<p>formulario_id: Referência para a tabela ‘formularios’ (não pode ser nulo, chave estrangeira).</p>
+</li><li>
+<p>created_at: Timestamp de criação (gerado automaticamente).</p>
+</li><li>
+<p>updated_at: Timestamp de atualização (gerado automaticamente).</p>
+</li></ul>
+
+<p>Índices:</p>
+<ul><li>
+<p>tipo_resposta: Índice na coluna ‘tipo_resposta’ para otimizar consultas.</p>
+</li></ul>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">
@@ -130,7 +150,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20250129210119_create_perguntas.rb, line 2</span>
+            <pre><span class="ruby-comment"># File db/migrate/20250129210119_create_perguntas.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>
   <span class="ruby-identifier">create_table</span> <span class="ruby-value">:perguntas</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">text</span> <span class="ruby-value">:texto</span>, <span class="ruby-value">null:</span> <span class="ruby-keyword">false</span>

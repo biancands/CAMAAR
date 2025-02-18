@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,Turma">
 
-    <meta name="description" content="class Turma: app/models/turma.rb">
+    <meta name="description" content="class Turma: Descrição A classe Turma representa uma turma de uma disciplina específica. Cada turma pertence a uma disciplina.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -64,6 +64,20 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>      <a href="#class-Turma-label-Descri-C3-A7-C3-A3o">Descrição</a>
+          <li>      <a href="#class-Turma-label-Associa-C3-A7-C3-B5es">Associações</a>
+          <li>      <a href="#class-Turma-label-Valida-C3-A7-C3-B5es">Validações</a>
+          <li>      <a href="#class-Turma-label-Atributos">Atributos</a>
+
+  </ul>
+</div>
+
   
   <div id="parent-class-section" class="nav-section">
   <h3>Ancestors</h3>
@@ -93,6 +107,33 @@
   <section class="description">
     
 <p>app/models/turma.rb</p>
+
+<h2 id="class-Turma-label-Descri-C3-A7-C3-A3o">Descrição<span><a href="#class-Turma-label-Descri-C3-A7-C3-A3o">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A classe <a href="Turma.html"><code>Turma</code></a> representa uma turma de uma disciplina específica.</p>
+
+<h2 id="class-Turma-label-Associa-C3-A7-C3-B5es">Associações<span><a href="#class-Turma-label-Associa-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>belongs_to :disciplina - Cada turma pertence a uma disciplina.</p>
+</li><li>
+<p>has_and_belongs_to_many :usuarios, join_table: :turmas_usuarios - Cada turma pode ter muitos usuários (alunos) e cada usuário pode estar em muitas turmas.</p>
+</li></ul>
+
+<h2 id="class-Turma-label-Valida-C3-A7-C3-B5es">Validações<span><a href="#class-Turma-label-Valida-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Valida a presença e unicidade de :codigo, :periodo e :horario no escopo de :disciplina_id.</p>
+</li><li>
+<p>Valida a presença de :disciplina.</p>
+</li></ul>
+
+<h2 id="class-Turma-label-Atributos">Atributos<span><a href="#class-Turma-label-Atributos">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>codigo - Código identificador da turma.</p>
+</li><li>
+<p>periodo - Período em que a turma é oferecida.</p>
+</li><li>
+<p>horario - Horário das aulas da turma.</p>
+</li></ul>
 
   </section>
 

@@ -1,4 +1,51 @@
 # app/services/sigaa_import_service.rb
+# Serviço para importar dados do SIGAA para o sistema.
+#
+# Este serviço lê arquivos JSON contendo informações sobre disciplinas, turmas e usuários,
+# e realiza a importação desses dados para o banco de dados da aplicação.
+#
+# @param data_dir [String] Diretório onde os arquivos JSON estão localizados. Padrão: "db/data".
+#
+# @example Uso básico
+#   service = ImportSigaaService.new
+#   service.import
+#
+# @note Este serviço utiliza transações do ActiveRecord para garantir a consistência dos dados.
+#
+# @!attribute [r] data_dir
+#   @return [String] Diretório onde os arquivos JSON estão localizados.
+#
+# @!attribute [r] classes_json
+#   @return [Array<Hash>] Dados das disciplinas e turmas extraídos do arquivo "classes.json".
+#
+# @!attribute [r] class_members_json
+#   @return [Array<Hash>] Dados dos membros das turmas extraídos do arquivo "class_members.json".
+#
+# Métodos principais:
+# @method import
+#   Realiza a importação dos dados do SIGAA.
+#   Envolve a importação de disciplinas, turmas, usuários e a associação de usuários às turmas.
+#   Registra a importação no banco de dados.
+#
+# Métodos privados:
+# @method log(message)
+#   Registra uma mensagem de log com timestamp.
+#   @param message [String] Mensagem a ser registrada.
+#
+# @method import_disciplinas
+#   Importa as disciplinas a partir dos dados JSON.
+#
+# @method import_turmas
+#   Importa as turmas a partir dos dados JSON.
+#
+# @method import_usuarios
+#   Importa os usuários (docentes e discentes) a partir dos dados JSON.
+#
+# @method associate_usuarios_to_turmas
+#   Associa os usuários às turmas correspondentes.
+#
+# @method register_import
+#   Registra a importação no banco de dados, incluindo estatísticas sobre a importação.
 class ImportSigaaService
   def initialize(data_dir: Rails.root.join("db", "data"))
     @data_dir = data_dir

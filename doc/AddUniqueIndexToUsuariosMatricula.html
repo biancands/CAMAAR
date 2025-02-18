@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,AddUniqueIndexToUsuariosMatricula">
 
-    <meta name="description" content="class AddUniqueIndexToUsuariosMatricula: XXXXXXXXXXXXXX_add_unique_index_to_usuarios_matricula.">
+    <meta name="description" content="class AddUniqueIndexToUsuariosMatricula: XXXXXXXXXXXXXX_add_unique_index_to_usuarios_matricula. Esta migração adiciona um índice único à coluna `matricula` na tabela `usuarios`.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,7 +99,20 @@
 
   <section class="description">
     
-<p>db/migrate/XXXXXXXXXXXXXX_add_unique_index_to_usuarios_matricula.rb</p>
+<p>db/migrate/XXXXXXXXXXXXXX_add_unique_index_to_usuarios_matricula.rb Esta migração adiciona um índice único à coluna ‘matricula` na tabela `usuarios`.</p>
+
+<p>Índices únicos garantem que os valores na coluna ‘matricula` sejam distintos em todas as linhas da tabela, prevenindo duplicações.</p>
+
+<p>Exemplos:</p>
+
+<pre>- Se a tabela `usuarios` possui as seguintes entradas:
+  | id | matricula |
+  |----|-----------|
+  | 1  | 12345     |
+  | 2  | 67890     |
+- Tentar inserir uma nova entrada com `matricula` igual a `12345` resultará em um erro.</pre>
+
+<p>@note Esta migração utiliza a versão 6.0 do ActiveRecord.</p>
 
   </section>
 
@@ -132,7 +145,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20250129221625_add_unique_index_to_usuarios_matricula.rb, line 3</span>
+            <pre><span class="ruby-comment"># File db/migrate/20250129221625_add_unique_index_to_usuarios_matricula.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>
   <span class="ruby-identifier">add_index</span> <span class="ruby-value">:usuarios</span>, <span class="ruby-value">:matricula</span>, <span class="ruby-value">unique:</span> <span class="ruby-keyword">true</span>
 <span class="ruby-keyword">end</span></pre>

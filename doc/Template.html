@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,Template">
 
-    <meta name="description" content="Documentation for the Template class">
+    <meta name="description" content="class Template: Classe Template que herda de ApplicationRecord. Representa um modelo de template no sistema.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -64,6 +64,19 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>      <a href="#class-Template-label-Associa-C3-A7-C3-B5es">Associações</a>
+          <li>      <a href="#class-Template-label-Exemplos">Exemplos</a>
+          <li>      <a href="#class-Template-label-Atributos">Atributos</a>
+
+  </ul>
+</div>
+
   
   <div id="parent-class-section" class="nav-section">
   <h3>Ancestors</h3>
@@ -92,6 +105,27 @@
 
   <section class="description">
     
+<p>Classe <a href="Template.html"><code>Template</code></a> que herda de <a href="ApplicationRecord.html"><code>ApplicationRecord</code></a>. Representa um modelo de template no sistema.</p>
+
+<h2 id="class-Template-label-Associa-C3-A7-C3-B5es">Associações<span><a href="#class-Template-label-Associa-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>belongs_to :usuario - Cada template pertence a um usuário.</p>
+</li></ul>
+
+<h2 id="class-Template-label-Exemplos">Exemplos<span><a href="#class-Template-label-Exemplos">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">template</span> = <span class="ruby-constant">Template</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">template</span>.<span class="ruby-identifier">usuario</span> = <span class="ruby-constant">Usuario</span>.<span class="ruby-identifier">first</span>
+</pre>
+
+<h2 id="class-Template-label-Atributos">Atributos<span><a href="#class-Template-label-Atributos">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Nenhum atributo adicional além dos herdados de <a href="ApplicationRecord.html"><code>ApplicationRecord</code></a>.</p>
+
+<p>@author Bianca</p>
+
+<p>@since 2023</p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">

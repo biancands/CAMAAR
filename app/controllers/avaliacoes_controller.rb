@@ -1,8 +1,12 @@
+# Controlador responsável pelas ações relacionadas às avaliações.
 class AvaliacoesController < ApplicationController
+  # Exibe as avaliações.
+  #
+  # @return [void]
   def show
     @is_admin = true
 
-        # Simulação de dados (substitua por uma busca no banco de dados no futuro)
+    # Simulação de dados (substitua por uma busca no banco de dados no futuro)
     @avaliacoes = [
       { id: 1, materia: "Matemática", semestre: "2023.1", professor: "João Silva" },
       { id: 2, materia: "Português", semestre: "2023.1", professor: "Maria Oliveira" },
@@ -10,7 +14,7 @@ class AvaliacoesController < ApplicationController
       { id: 4, materia: "Geografia", semestre: "2023.1", professor: "Ana Costa" },
       { id: 5, materia: "Física", semestre: "2023.1", professor: "Pedro Santos" },
       { id: 6, materia: "Química", semestre: "2023.1", professor: "Luiza Fernandes" },
-      { id: 7, materia: "Biologia", semestre: "2023.1", professor: "Fernando Lima" },
-      ]
+      { id: 7, materia: "Biologia", semestre: "2023.1", professor: "Fernando Lima" }
+    ]
   end
 end

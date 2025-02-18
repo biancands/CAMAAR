@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,UsuarioMailer">
 
-    <meta name="description" content="class UsuarioMailer: issue: 105 - Enviar e-mail de ativação">
+    <meta name="description" content="class UsuarioMailer: Enviar e-mail de ativação Classe responsável pelo envio de e-mails relacionados ao usuário. Herda de ApplicationMailer.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,7 +99,23 @@
 
   <section class="description">
     
-<p>issue: 105 - Enviar e-mail de ativação</p>
+<p>issue: 105 - Enviar e-mail de ativação Classe responsável pelo envio de e-mails relacionados ao usuário. Herda de <a href="ApplicationMailer.html"><code>ApplicationMailer</code></a>.</p>
+
+<p>@example Envio de e-mail de ativação</p>
+
+<pre class="ruby"><span class="ruby-constant">UsuarioMailer</span>.<span class="ruby-identifier">with</span>(<span class="ruby-value">usuario:</span> <span class="ruby-ivar">@usuario</span>, <span class="ruby-value">token:</span> <span class="ruby-ivar">@token</span>).<span class="ruby-identifier">activation_email</span>.<span class="ruby-identifier">deliver_now</span>
+</pre>
+
+<p>@!method <a href="UsuarioMailer.html#method-i-activation_email"><code>activation_email</code></a></p>
+
+<pre>Método responsável por configurar o e-mail de ativação do usuário.
+Utiliza os parâmetros :usuario e :token para personalizar o e-mail.
+Define o remetente padrão como &quot;no-reply@camaar.com&quot;.
+Envia o e-mail para o endereço do usuário com o assunto &quot;Seu Token de Ativação - CAMAAR&quot;.
+
+@param [Hash] params Parâmetros para configuração do e-mail.
+@option params [Usuario] :usuario O usuário que receberá o e-mail.
+@option params [String] :token O token de ativação do usuário.</pre>
 
   </section>
 
@@ -132,7 +148,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="activation_email-source">
-            <pre><span class="ruby-comment"># File app/mailers/usuario_mailer.rb, line 5</span>
+            <pre><span class="ruby-comment"># File app/mailers/usuario_mailer.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">activation_email</span>
   <span class="ruby-ivar">@usuario</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:usuario</span>]
   <span class="ruby-ivar">@token</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:token</span>]

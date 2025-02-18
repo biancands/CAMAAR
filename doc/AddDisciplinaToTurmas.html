@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,AddDisciplinaToTurmas">
 
-    <meta name="description" content="class AddDisciplinaToTurmas: XXXXXXXXXXXXXX_add_disciplina_to_turmas.">
+    <meta name="description" content="class AddDisciplinaToTurmas: XXXXXXXXXXXXXX_add_disciplina_to_turmas. Esta migração adiciona uma referência à tabela `turmas` para a tabela `disciplina`.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,7 +99,17 @@
 
   <section class="description">
     
-<p>db/migrate/XXXXXXXXXXXXXX_add_disciplina_to_turmas.rb</p>
+<p>db/migrate/XXXXXXXXXXXXXX_add_disciplina_to_turmas.rb Esta migração adiciona uma referência à tabela ‘turmas` para a tabela `disciplina`. A coluna adicionada será uma chave estrangeira, garantindo a integridade referencial entre as tabelas `turmas` e `disciplina`.</p>
+
+<p>Métodos:</p>
+<ul><li>
+<p>change: Adiciona a coluna de referência ‘disciplina_id` à tabela `turmas`.</p>
+</li></ul>
+
+<p>Exemplos:</p>
+
+<pre>Após a execução desta migração, a tabela `turmas` terá uma coluna `disciplina_id`
+que referencia a tabela `disciplina`.</pre>
 
   </section>
 
@@ -132,7 +142,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20250129220321_add_disciplina_to_turmas.rb, line 3</span>
+            <pre><span class="ruby-comment"># File db/migrate/20250129220321_add_disciplina_to_turmas.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>
   <span class="ruby-identifier">add_reference</span> <span class="ruby-value">:turmas</span>, <span class="ruby-value">:disciplina</span>, <span class="ruby-value">foreign_key:</span> <span class="ruby-keyword">true</span>
 <span class="ruby-keyword">end</span></pre>

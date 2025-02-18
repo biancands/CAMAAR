@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,CreateFormularios">
 
-    <meta name="description" content="Documentation for the CreateFormularios class">
+    <meta name="description" content="class CreateFormularios: Cria a tabela &#39;formularios&#39; com as colunas especificadas. Título do formulário, não pode ser nulo.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,6 +99,30 @@
 
   <section class="description">
     
+<p>Cria a tabela ‘formularios’ com as colunas especificadas.</p>
+
+<p>Tabela: formularios Colunas:</p>
+<ul><li>
+<p>titulo (string): Título do formulário, não pode ser nulo.</p>
+</li><li>
+<p>descricao (text): Descrição do formulário.</p>
+</li><li>
+<p>data_criacao (datetime): Data de criação do formulário, com valor padrão de ‘CURRENT_TIMESTAMP’.</p>
+</li><li>
+<p>usuario_id (references): Referência para a tabela ‘usuarios’, não pode ser nulo.</p>
+</li><li>
+<p>turma_id (references): Referência para a tabela ‘turmas’, não pode ser nulo.</p>
+</li><li>
+<p>created_at (datetime): Timestamp de criação, gerado automaticamente.</p>
+</li><li>
+<p>updated_at (datetime): Timestamp de atualização, gerado automaticamente.</p>
+</li></ul>
+
+<p>Índices:</p>
+<ul><li>
+<p>titulo: Índice para otimizar buscas por título.</p>
+</li></ul>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">
@@ -130,13 +154,13 @@
 
         <div class="method-description">
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20250129210118_create_formularios.rb, line 2</span>
+            <pre><span class="ruby-comment"># File db/migrate/20250129210118_create_formularios.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>
   <span class="ruby-identifier">create_table</span> <span class="ruby-value">:formularios</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-value">:titulo</span>, <span class="ruby-value">null:</span> <span class="ruby-keyword">false</span>
     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">text</span> <span class="ruby-value">:descricao</span>
     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-value">:data_criacao</span>, <span class="ruby-value">default:</span> <span class="ruby-operator">-&gt;</span> { <span class="ruby-string">&#39;CURRENT_TIMESTAMP&#39;</span> }
-    
+
     <span class="ruby-comment"># Chaves estrangeiras explicitamente configuradas</span>
     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">references</span> <span class="ruby-value">:usuario</span>, <span class="ruby-value">null:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">foreign_key:</span> { <span class="ruby-value">to_table:</span> <span class="ruby-value">:usuarios</span> }
     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">references</span> <span class="ruby-value">:turma</span>, <span class="ruby-value">null:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">foreign_key:</span> <span class="ruby-keyword">true</span>

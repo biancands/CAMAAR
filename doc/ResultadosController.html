@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,ResultadosController">
 
-    <meta name="description" content="Documentation for the ResultadosController class">
+    <meta name="description" content="class ResultadosController: Controlador responsável por exibir os resultados das avaliações. Exibe a lista de avaliações e define se o usuário é administrador.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,6 +99,22 @@
 
   <section class="description">
     
+<p>Controlador responsável por exibir os resultados das avaliações.</p>
+
+<p>Métodos:</p>
+<ul><li>
+<p>show: Exibe a lista de avaliações e define se o usuário é administrador.</p>
+</li></ul>
+
+<p>Variáveis de instância:</p>
+<ul><li>
+<p>@is_admin: Booleano que indica se o usuário é administrador.</p>
+</li><li>
+<p>@avaliacoes: Array de hashes contendo informações sobre as avaliações.</p>
+</li></ul>
+
+<p>Exemplo de avaliação: { id: 1, materia: “Matemática”, semestre: “2023.1”, professor: “João Silva” }</p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">
@@ -130,7 +146,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/resultados_controller.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/controllers/resultados_controller.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
   <span class="ruby-ivar">@is_admin</span> = <span class="ruby-keyword">true</span>
 

@@ -1,3 +1,14 @@
+# Controlador responsável por exibir os resultados das avaliações.
+#
+# Métodos:
+# - show: Exibe a lista de avaliações e define se o usuário é administrador.
+#
+# Variáveis de instância:
+# - @is_admin: Booleano que indica se o usuário é administrador.
+# - @avaliacoes: Array de hashes contendo informações sobre as avaliações.
+#
+# Exemplo de avaliação:
+# { id: 1, materia: "Matemática", semestre: "2023.1", professor: "João Silva" }
 class ResultadosController < ApplicationController
   def show
     @is_admin = true

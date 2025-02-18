@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,TemplatesController">
 
-    <meta name="description" content="Documentation for the TemplatesController class">
+    <meta name="description" content="class TemplatesController: TemplatesController é responsável por gerenciar as ações relacionadas aos templates. Define a variável de instância @is_admin como true.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,6 +99,18 @@
 
   <section class="description">
     
+<p><a href="TemplatesController.html"><code>TemplatesController</code></a> é responsável por gerenciar as ações relacionadas aos templates.</p>
+
+<p>Métodos:</p>
+<ul><li>
+<p>show: Define a variável de instância @is_admin como true.</p>
+</li></ul>
+
+<p>Exemplos:</p>
+
+<pre>GET /templates/:id
+Response: Renderiza a visualização do template com a variável @is_admin definida como true.</pre>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">
@@ -130,7 +142,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/templates_controller.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/controllers/templates_controller.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
   <span class="ruby-ivar">@is_admin</span> = <span class="ruby-keyword">true</span>
 <span class="ruby-keyword">end</span></pre>

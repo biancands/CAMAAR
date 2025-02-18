@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,AddUniqueIndexToTurmasCodigo">
 
-    <meta name="description" content="class AddUniqueIndexToTurmasCodigo: XXXXXXXXXXXXXX_add_unique_index_to_turmas_codigo.">
+    <meta name="description" content="class AddUniqueIndexToTurmasCodigo: XXXXXXXXXXXXXX_add_unique_index_to_turmas_codigo. Esta migração adiciona um índice único à coluna `codigo` da tabela `turmas`.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,7 +99,22 @@
 
   <section class="description">
     
-<p>db/migrate/XXXXXXXXXXXXXX_add_unique_index_to_turmas_codigo.rb</p>
+<p>db/migrate/XXXXXXXXXXXXXX_add_unique_index_to_turmas_codigo.rb Esta migração adiciona um índice único à coluna ‘codigo` da tabela `turmas`.</p>
+
+<p>Classes:</p>
+<ul><li>
+<p>AddUniqueIndexToTurmasCodigo: Define a migração para adicionar o índice único.</p>
+</li></ul>
+
+<p>Métodos:</p>
+<ul><li>
+<p>change: Adiciona o índice único à coluna ‘codigo` da tabela `turmas`.</p>
+</li></ul>
+
+<p>Exemplos:</p>
+
+<pre>Após executar esta migração, a coluna `codigo` na tabela `turmas` terá um índice único,
+garantindo que não existam valores duplicados nesta coluna.</pre>
 
   </section>
 
@@ -132,7 +147,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20250129220123_add_unique_index_to_turmas_codigo.rb, line 3</span>
+            <pre><span class="ruby-comment"># File db/migrate/20250129220123_add_unique_index_to_turmas_codigo.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>
   <span class="ruby-identifier">add_index</span> <span class="ruby-value">:turmas</span>, <span class="ruby-value">:codigo</span>, <span class="ruby-value">unique:</span> <span class="ruby-keyword">true</span>
 <span class="ruby-keyword">end</span></pre>

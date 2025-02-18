@@ -101,7 +101,25 @@
     
 <p>Adiciona a coluna ‘curso` à tabela `usuarios`.</p>
 
-<p>Esta migração inclui um novo campo para armazenar o curso associado a um usuário.</p>
+<p>Esta migração inclui um novo campo para armazenar o curso associado a um usuário. Adiciona a coluna ‘curso’ à tabela ‘usuarios’.</p>
+
+<p>Esta migração adiciona uma nova coluna chamada ‘curso’ do tipo string à tabela ‘usuarios’. Esta coluna será usada para armazenar o curso associado a cada usuário.</p>
+
+<p>Exemplos:</p>
+
+<pre>Antes da migração:
+  | id | nome  | email           |
+  |----|-------|-----------------|
+  | 1  | João  | joao@email.com  |
+
+Depois da migração:
+  | id | nome  | email           | curso       |
+  |----|-------|-----------------|-------------|
+  | 1  | João  | joao@email.com  | Engenharia  |</pre>
+
+<p>@note Esta migração é gerada automaticamente e deve ser aplicada ao banco de dados</p>
+
+<pre>usando o comando `rails db:migrate`.</pre>
 
   </section>
 
@@ -134,7 +152,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20250201232331_add_curso_to_usuarios.rb, line 5</span>
+            <pre><span class="ruby-comment"># File db/migrate/20250201232331_add_curso_to_usuarios.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>
   <span class="ruby-identifier">add_column</span> <span class="ruby-value">:usuarios</span>, <span class="ruby-value">:curso</span>, <span class="ruby-value">:string</span>
 <span class="ruby-keyword">end</span></pre>

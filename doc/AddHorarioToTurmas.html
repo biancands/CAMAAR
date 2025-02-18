@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,AddHorarioToTurmas">
 
-    <meta name="description" content="Documentation for the AddHorarioToTurmas class">
+    <meta name="description" content="class AddHorarioToTurmas: Esta migração adiciona uma nova coluna chamada &#39;horario&#39; à tabela &#39;turmas&#39;. A coluna &#39;horario&#39; é do tipo string.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,6 +99,15 @@
 
   <section class="description">
     
+<p>Esta migração adiciona uma nova coluna chamada ‘horario’ à tabela ‘turmas’. A coluna ‘horario’ é do tipo string.</p>
+
+<p>Exemplos:</p>
+
+<pre class="ruby"><span class="ruby-identifier">add_column</span> <span class="ruby-value">:turmas</span>, <span class="ruby-value">:horario</span>, <span class="ruby-value">:string</span>
+</pre>
+
+<p>@see ActiveRecord::Migration</p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">
@@ -130,7 +139,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20250201230350_add_horario_to_turmas.rb, line 2</span>
+            <pre><span class="ruby-comment"># File db/migrate/20250201230350_add_horario_to_turmas.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>
   <span class="ruby-identifier">add_column</span> <span class="ruby-value">:turmas</span>, <span class="ruby-value">:horario</span>, <span class="ruby-value">:string</span>
 <span class="ruby-keyword">end</span></pre>

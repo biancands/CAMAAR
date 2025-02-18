@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,ApplicationMailer">
 
-    <meta name="description" content="Documentation for the ApplicationMailer class">
+    <meta name="description" content="class ApplicationMailer: Classe base para todos os mailers da aplicação. Bem-vindo ao nosso site&#39;) end end @note Esta classe define um remetente padrão e um layout para">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -92,6 +92,24 @@
 
   <section class="description">
     
+<p>Classe base para todos os mailers da aplicação.</p>
+
+<p>@example Definindo um mailer</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">UserMailer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationMailer</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">welcome_email</span>(<span class="ruby-identifier">user</span>)
+    <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
+    <span class="ruby-identifier">mail</span>(<span class="ruby-value">to:</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">email</span>, <span class="ruby-value">subject:</span> <span class="ruby-string">&#39;Bem-vindo ao nosso site&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>@note Esta classe define um remetente padrão e um layout para os emails.</p>
+
+<p>@see ActionMailer::Base</p>
+
+<p>@since 1.0.0</p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">

@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,CreateSigaas">
 
-    <meta name="description" content="Documentation for the CreateSigaas class">
+    <meta name="description" content="class CreateSigaas: Cria a tabela `sigaas` com as colunas `tipo_dado`, `ultima_atualizacao` e `detalhes`. Tipo de dado armazenado.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,6 +99,21 @@
 
   <section class="description">
     
+<p>Cria a tabela ‘sigaas` com as colunas `tipo_dado`, `ultima_atualizacao` e `detalhes`.</p>
+
+<p>Colunas:</p>
+<ul><li>
+<p>‘tipo_dado` (string): Tipo de dado armazenado.</p>
+</li><li>
+<p>‘ultima_atualizacao` (datetime): Data e hora da última atualização.</p>
+</li><li>
+<p>‘detalhes` (jsonb): Detalhes adicionais armazenados em formato JSONB.</p>
+</li><li>
+<p>‘created_at` (datetime): Data e hora de criação do registro (gerado automaticamente pelo Rails).</p>
+</li><li>
+<p>‘updated_at` (datetime): Data e hora da última atualização do registro (gerado automaticamente pelo Rails).</p>
+</li></ul>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">
@@ -130,7 +145,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20250129210122_create_sigaas.rb, line 2</span>
+            <pre><span class="ruby-comment"># File db/migrate/20250129210122_create_sigaas.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>
   <span class="ruby-identifier">create_table</span> <span class="ruby-value">:sigaas</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-value">:tipo_dado</span>

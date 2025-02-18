@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,AddUniqueIndexToDisciplinasCodigo">
 
-    <meta name="description" content="Documentation for the AddUniqueIndexToDisciplinasCodigo class">
+    <meta name="description" content="class AddUniqueIndexToDisciplinasCodigo: Esta migração adiciona um índice único à coluna `codigo` na tabela `disciplinas`.">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -99,6 +99,19 @@
 
   <section class="description">
     
+<p>Esta migração adiciona um índice único à coluna ‘codigo` na tabela `disciplinas`.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">add_index</span> <span class="ruby-value">:disciplinas</span>, <span class="ruby-value">:codigo</span>, <span class="ruby-value">unique:</span> <span class="ruby-keyword">true</span>
+</pre>
+
+<p>@note</p>
+
+<pre>Índices únicos garantem que os valores na coluna especificada sejam distintos em todas as linhas da tabela.</pre>
+
+<p>@see ActiveRecord::Migration @see ActiveRecord::ConnectionAdapters::SchemaStatements#add_index</p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">
@@ -130,7 +143,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="change-source">
-            <pre><span class="ruby-comment"># File db/migrate/20250129215841_add_unique_index_to_disciplinas_codigo.rb, line 2</span>
+            <pre><span class="ruby-comment"># File db/migrate/20250129215841_add_unique_index_to_disciplinas_codigo.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>
   <span class="ruby-identifier">add_index</span> <span class="ruby-value">:disciplinas</span>, <span class="ruby-value">:codigo</span>, <span class="ruby-value">unique:</span> <span class="ruby-keyword">true</span>
 <span class="ruby-keyword">end</span></pre>

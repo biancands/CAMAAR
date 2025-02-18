@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,class,ImportUsuariosService">
 
-    <meta name="description" content="class ImportUsuariosService: issue: 100 - Importar usuários e issue 105 - Enviar e-mail de ativação">
+    <meta name="description" content="class ImportUsuariosService: Importar usuários e issue 105 - Enviar e-mail de ativação Serviço para importar usuários a partir de um arquivo JSON. Importa usuários a partir de um ">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -64,6 +64,38 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#class-ImportUsuariosService-label-M-C3-A9todos+de+Classe-3A">Métodos de Classe:</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-ImportUsuariosService-label-Exemplo+de+Uso-3A">Exemplo de Uso:</a>
+          <li>
+            <details open>
+              <summary>      <a href="#class-ImportUsuariosService-label-Detalhes+do+M-C3-A9todo-3A">Detalhes do Método:</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-ImportUsuariosService-label-Par-C3-A2metros-3A">Parâmetros:</a>
+          <li>      <a href="#class-ImportUsuariosService-label-Exce-C3-A7-C3-B5es-3A">Exceções:</a>
+          <li>      <a href="#class-ImportUsuariosService-label-Exemplo+de+JSON-3A">Exemplo de JSON:</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
   
   <div id="parent-class-section" class="nav-section">
   <h3>Ancestors</h3>
@@ -99,7 +131,48 @@
 
   <section class="description">
     
-<p>issue: 100 - Importar usuários e issue 105 - Enviar e-mail de ativação</p>
+<p>issue: 100 - Importar usuários e issue 105 - Enviar e-mail de ativação Serviço para importar usuários a partir de um arquivo JSON.</p>
+
+<h2 id="class-ImportUsuariosService-label-M-C3-A9todos+de+Classe-3A">Métodos de Classe:<span><a href="#class-ImportUsuariosService-label-M-C3-A9todos+de+Classe-3A">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><a href="ImportUsuariosService.html#method-c-import_from_json"><code>import_from_json</code></a>: Importa usuários a partir de um arquivo JSON especificado.</p>
+</li></ul>
+
+<h3 id="class-ImportUsuariosService-label-Exemplo+de+Uso-3A">Exemplo de Uso:<span><a href="#class-ImportUsuariosService-label-Exemplo+de+Uso-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-constant">ImportUsuariosService</span>.<span class="ruby-identifier">import_from_json</span>(<span class="ruby-string">&#39;/caminho/para/o/arquivo.json&#39;</span>)
+</pre>
+
+<h3 id="class-ImportUsuariosService-label-Detalhes+do+M-C3-A9todo-3A">Detalhes do Método:<span><a href="#class-ImportUsuariosService-label-Detalhes+do+M-C3-A9todo-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<dl class="rdoc-list label-list"><dt><a href="ImportUsuariosService.html#method-c-import_from_json"><code>import_from_json</code></a>(file_path)</dt>
+<dd>
+<p>Lê o arquivo JSON especificado, parseia os dados e importa os usuários. Para cada usuário, verifica se já existe no banco de dados pelo e-mail. Se o usuário não existir, cria um novo registro com os dados fornecidos, gera um token de ativação e envia um e-mail de ativação. Se o usuário já existir, apenas informa que o usuário já está cadastrado.</p>
+</dd></dl>
+
+<h4 id="class-ImportUsuariosService-label-Par-C3-A2metros-3A">Parâmetros:<span><a href="#class-ImportUsuariosService-label-Par-C3-A2metros-3A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>file_path</code> - Caminho para o arquivo JSON contendo os dados dos usuários.</p>
+</li></ul>
+
+<h4 id="class-ImportUsuariosService-label-Exce-C3-A7-C3-B5es-3A">Exceções:<span><a href="#class-ImportUsuariosService-label-Exce-C3-A7-C3-B5es-3A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Levanta uma exceção se o arquivo JSON não puder ser lido ou parseado.</p>
+</li></ul>
+
+<h4 id="class-ImportUsuariosService-label-Exemplo+de+JSON-3A">Exemplo de JSON:<span><a href="#class-ImportUsuariosService-label-Exemplo+de+JSON-3A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby">[
+  {
+    <span class="ruby-value">&quot;dicente&quot;:</span> [
+      {
+        <span class="ruby-value">&quot;nome&quot;:</span> <span class="ruby-string">&quot;Nome do Usuário&quot;</span>,
+        <span class="ruby-value">&quot;email&quot;:</span> <span class="ruby-string">&quot;email@exemplo.com&quot;</span>,
+        <span class="ruby-value">&quot;matricula&quot;:</span> <span class="ruby-string">&quot;123456&quot;</span>
+      }
+    ]
+  }
+]
+</pre>
 
   </section>
 
@@ -132,7 +205,7 @@
 
         <div class="method-description">
           <div class="method-source-code" id="import_from_json-source">
-            <pre><span class="ruby-comment"># File app/services/import_usuarios_service.rb, line 5</span>
+            <pre><span class="ruby-comment"># File app/services/import_usuarios_service.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">import_from_json</span>(<span class="ruby-identifier">file_path</span>)
   <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">file_path</span>)
   <span class="ruby-identifier">data</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">file</span>)
