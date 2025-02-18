@@ -3,14 +3,31 @@ pt-BR:
     errors:
       messages:
         blank: "não pode ficar em branco"
-      attributes:
-        codigo:
-          blank: "não pode ficar em branco"
+        record_invalid: "Registro inválido: %{errors}"
+      models:
+        disciplina:
+          attributes:
+            codigo:
+              blank: "não pode ficar em branco"
+              taken: "já está em uso"
+        sigaa:
+          attributes:
+            tipo_dado:
+              blank: "não pode ficar em branco"
+        turma:
+          attributes:
+            horario:
+              blank: "não pode ficar em branco"
+            codigo:
+              blank: "não pode ficar em branco"
+              taken: "já está em uso"
+        usuario:
+          attributes:
+            departamento:
+              blank: "não pode ficar em branco"
+            formacao:
+              blank: "não pode ficar em branco"
+            curso:
+              blank: "não pode ficar em branco"
   errors:
     format: "%{message}"
-# config/locales/pt-BR.yml
-pt-BR:
-  activerecord:
-    errors:
-      messages:
-        record_invalid: 'Validação falhou: %{errors}'

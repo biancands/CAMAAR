@@ -1,8 +1,12 @@
 FactoryBot.define do
   factory :usuario do
-    nome { Faker::Name.name }
-    sequence(:email) { |n| "usuario#{n}@example.com" }
-    tipo { %w[Docente Discente].sample }
-    password_digest { BCrypt::Password.create('senha123') }
+    nome { "Agatha Moura" }
+    email { "agatha@example.com" }
+    password { "senha123" }
+    tipo { "Discente" }
+    matricula { "123456" }
+    curso { "Engenharia" }  # Valor válido para o atributo obrigatório
+    departamento { "Departamento X" }
+    formacao { "Graduação" }
   end
 end
