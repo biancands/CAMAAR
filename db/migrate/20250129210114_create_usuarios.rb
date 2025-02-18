@@ -1,4 +1,19 @@
 # db/migrate/XXXXXXXXXXXXXX_create_usuarios.rb
+# Cria a tabela 'usuarios' com as colunas 'nome', 'email', 'password_digest', 'tipo' e 'matricula'.
+# Adiciona índices únicos para as colunas 'email' e 'matricula'.
+#
+# Tabela: usuarios
+# - nome: string, não nulo
+# - email: string, não nulo
+# - password_digest: string, não nulo
+# - tipo: string, não nulo
+# - matricula: string
+# - created_at: datetime, gerado automaticamente pelo Rails
+# - updated_at: datetime, gerado automaticamente pelo Rails
+#
+# Índices:
+# - email: único
+# - matricula: único
 class CreateUsuarios < ActiveRecord::Migration[6.0]
   def change
     create_table :usuarios do |t|

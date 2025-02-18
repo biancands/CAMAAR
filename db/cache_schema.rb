@@ -1,3 +1,21 @@
+# Este arquivo define o esquema do banco de dados para a tabela `solid_cache_entries`.
+# 
+# Versão do Schema: 7.2
+# Versão da Tabela: 1
+#
+# Tabela: solid_cache_entries
+# 
+# Colunas:
+# - key: Chave binária com limite de 1024 bytes, não nula.
+# - value: Valor binário com limite de 536870912 bytes, não nulo.
+# - created_at: Data e hora de criação, não nula.
+# - key_hash: Hash da chave, inteiro com limite de 8 bytes, não nulo.
+# - byte_size: Tamanho em bytes, inteiro com limite de 4 bytes, não nulo.
+#
+# Índices:
+# - index_solid_cache_entries_on_byte_size: Índice na coluna `byte_size`.
+# - index_solid_cache_entries_on_key_hash_and_byte_size: Índice nas colunas `key_hash` e `byte_size`.
+# - index_solid_cache_entries_on_key_hash: Índice único na coluna `key_hash`.
 # frozen_string_literal: true
 
 ActiveRecord::Schema[7.2].define(version: 1) do

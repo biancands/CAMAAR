@@ -1,3 +1,28 @@
+# == Esquema da Fila de Execuções
+#
+# Este arquivo define o esquema do banco de dados para as tabelas relacionadas ao gerenciamento de filas de execução.
+#
+# === Tabelas
+#
+# - solid_queue_blocked_executions: Armazena execuções bloqueadas com informações sobre o trabalho, nome da fila, prioridade, chave de concorrência e datas de expiração e criação.
+# - solid_queue_claimed_executions: Armazena execuções reivindicadas com informações sobre o trabalho, ID do processo e data de criação.
+# - solid_queue_failed_executions: Armazena execuções que falharam com informações sobre o trabalho, erro e data de criação.
+# - solid_queue_jobs: Armazena informações sobre os trabalhos na fila, incluindo nome da fila, nome da classe, argumentos, prioridade, ID do trabalho ativo, datas de agendamento e conclusão, chave de concorrência e datas de criação e atualização.
+# - solid_queue_pauses: Armazena pausas na fila com informações sobre o nome da fila e data de criação.
+# - solid_queue_processes: Armazena informações sobre processos, incluindo tipo, última batida de coração, ID do supervisor, PID, nome do host, metadados, nome e data de criação.
+# - solid_queue_ready_executions: Armazena execuções prontas com informações sobre o trabalho, nome da fila, prioridade e data de criação.
+# - solid_queue_recurring_executions: Armazena execuções recorrentes com informações sobre o trabalho, chave da tarefa, data de execução e data de criação.
+# - solid_queue_recurring_tasks: Armazena tarefas recorrentes com informações sobre chave, cronograma, comando, nome da classe, argumentos, nome da fila, prioridade, se é estática, descrição e datas de criação e atualização.
+# - solid_queue_scheduled_executions: Armazena execuções agendadas com informações sobre o trabalho, nome da fila, prioridade, data de agendamento e data de criação.
+# - solid_queue_semaphores: Armazena semáforos com informações sobre chave, valor, data de expiração e datas de criação e atualização.
+#
+# === Índices
+#
+# Cada tabela possui índices específicos para otimizar consultas e garantir a unicidade de certas colunas.
+#
+# === Chaves Estrangeiras
+#
+# As tabelas de execuções (blocked, claimed, failed, ready, recurring, scheduled) possuem chaves estrangeiras que referenciam a tabela solid_queue_jobs, com a opção de exclusão em cascata.
 ActiveRecord::Schema[7.1].define(version: 1) do
   create_table "solid_queue_blocked_executions", force: :cascade do |t|
     t.bigint "job_id", null: false
