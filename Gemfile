@@ -71,4 +71,8 @@ group :test do
   gem "cucumber-rails", require: false
   gem "database_cleaner-active_record"
   gem "rspec-rails"
+  gem "saikuro"
+  gem "rubycritic"
+  gem "simplecov", require: false
+  gem "rdoc"
 end
