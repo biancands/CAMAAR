@@ -1,35 +1,19 @@
 Given('que existem dados de participantes novos no SIGAA') do
-  pending # Write code here that turns the phrase above into concrete actions
+  @dados_json = File.read(Rails.root.join('spec', 'fixtures', 'sigaa_participantes.json'))
 end
 
 Given('esses dados estão disponíveis no formato JSON') do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@dados_json).not_to be_empty
 end
 
 When('eu importo os dados de participantes') do
-  pending # Write code here that turns the phrase above into concrete actions
+  post "/importar_participantes", params: { arquivo: @dados_json }
 end
 
 Then('os participantes são cadastrados no sistema') do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(Usuario.count).to be > 0
 end
 
 Then('recebem credenciais de acesso.') do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Given('que existem dados de participantes no SIGAA') do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When('eu tento importar dados de participantes com informações incompletas ou duplicadas') do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then('o sistema rejeita os dados inválidos') do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then('exibe uma mensagem de erro apropriada') do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(Usuario.last.password_digest).not_to be_nil
 end
